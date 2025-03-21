@@ -1,0 +1,137 @@
+// custom scroll
+::-webkit-scrollbar
+  width: 8px
+::-webkit-scrollbar-track
+  background-color: rgba($black, 0.9)
+::-webkit-scrollbar-thumb
+  box-shadow: inset 0 0 8px rgba($black, 0.5)
+
+.page  // class for html
+  scroll-behavior: smooth
+  // custom scroll
+  scrollbar-gutter: stable
+  scrollbar-color: $black $bgc
+  scrollbar-width: thin
+  height: 100%
+
+.page__body // class for body
+  // заменить ниже на свои значения
+  margin: 0
+  min-width: 320px
+  height: 100%
+  @extend %body
+  background-color: $bgc
+  color: $black
+  &._lock
+    overflow: hidden !important
+    height: 100% !important
+
+ul, li
+  padding: 0
+h1,h2,h3
+  margin: 0
+input
+  outline: none
+
+.wrapper
+  display: flex
+  flex-direction: column
+  min-height: 100%
+  // min-height: 100vh
+  overflow: hidden
+  > main
+    // flex-grow - увеличиваться в размере: 0 зап-т, 1 раз-т
+    // flex-shrink - уменьшаться в размере: 0 зап-т, 1 раз-т
+    // flex-basis - определяет размер элемента по умолчанию
+    flex: 1 1 auto
+  // Фикс для слайдеров
+  > *
+    min-width: 0
+
+.footer
+  flex: 0 0 auto
+
+[class*='__container']
+  margin: 0 auto
+  padding: 0 $containerPadding + px
+  max-width: $containerWidth + px
+  width: 100%
+
+.container
+  &-full
+    padding: 0 $containerPadding + px
+    max-width: 100%
+  &-left50
+    padding: 0 $containerPadding + px
+    max-width: 50%
+    @include mediaPhone
+      max-width: 100%
+  &-right50
+    padding: 0 $containerPadding + px
+    max-width: 50%
+    margin-left: auto
+    @include mediaPhone
+      max-width: 100%
+  &-left
+    padding-right: calc( (100vw - #{$contentWidth}px) / 2)
+    @include mediaDesk
+      padding-right: $containerPadding + px
+  &-right
+    padding-left: calc( (100% - #{$contentWidth}px) / 2 + (#{$containerPadding}px) )
+    @include mediaDesk
+      padding-left: $containerPadding + px
+
+._ibg
+  position: relative
+  img
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    object-fit: cover
+
+._vbg
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  height: var(--height)
+  width: 100%
+  filter: blur(2px)
+  video,
+  iframe,
+  object,
+  embed
+    background-size: cover
+    min-width: 100%
+    min-height: 100%
+    width: 100%
+    height: 100%
+    object-fit: cover
+    // z-index: -5
+    // position: fixed
+
+.icon-svg
+  display: inline-block
+  fill: transparent
+  stroke: transparent
+  width: 30px
+  height: 30px
+  transition: fill 0.3s ease-in
+
+.logo--header
+  height: 50px
+
+.heading
+  @extend %head
+
+.unvisible
+  position: absolute
+  top: 0
+  left: -10px
+  overflow: hidden
+  width: 0
+  height: 0
+  white-space: nowrap
+  visibility: hidden

@@ -1,0 +1,31 @@
+@media ( min-width: 992px )
+  .benefits__arrow
+            // имя  / продолжительность / ?? / ?? / время задерржки 
+    animation: move-down 5s infinite linear
+    // снимает дергание анимации
+    backface-visibility: hidden
+    // сохраняет перввй кадр анимации, если еть задержка
+    animation-fill-mode: backwards
+
+
+@keyframes move-down
+  0%
+    transform: translate(0, 0) scale(1)
+  30%
+    transform: translate(0px, 100px) scale(1.1)
+  45%
+    transform: translate(0px, 70px) scale(1)
+  70%
+    transform: translate(0px, 100px) scale(1.1)
+  100%
+    transform: translate(0px, 90px) scale(1)
+
+@keyframes leftToRight
+  0%
+    opacity: 0
+    transform: translateX(-100px)
+  80%
+    transform: translateX(20px)
+  100%
+    opacity: 1
+    transform: translateX(0px)

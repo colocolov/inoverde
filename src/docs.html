@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" class="page">
+@include('html/head.html', { "title":"Documentation" })
+
+<body class="page__body">
+  <div class="wrapper">
+    @include('html/header.html')
+
+    <main class="main">
+
+      <div class="hello__container">
+        @include('html/docs/_intro.html')
+      </div>
+
+      <div class="hello__container" id="container">
+        <h2>Примеры контейнеров</h2>
+      </div>
+      @include('html/docs/_containers.html')
+
+      <div class="hello__container" id="svg">
+        <h2>Примеры svgSprite</h2>
+        @include('html/docs/_svg.html')
+      </div>
+
+      <div class="hello__container" id="hotkeys">
+        <h2>Горячие клавиши и миксины</h2>
+        @include('html/docs/_hotkeys.html')
+      </div>
+
+    </main>
+
+    @include('html/footer.html')
+  </div><!-- /.wrapper -->
+</body>
+
+
+</html>

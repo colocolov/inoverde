@@ -1,0 +1,60 @@
+.main-slider
+  position: relative
+  // height: 100vh
+  max-height: 800px
+  background-color: $bgc
+  color: $text
+  &__container
+    box-sizing: border-box
+    width: 100%
+    display: flex
+    justify-content: center
+
+  // основные настройки и размеры оберки слайдера
+  // !!!ОБЯЗАТЕЛЬНО ПОМЕНЯТЬ!!!
+  &__slider
+    width: 200px // задать по макету
+    height: 200px // задать по макету
+
+  &__slide
+    display: flex
+    align-items: center
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background-color: $bgc
+      opacity: .6
+      z-index: 1
+  &__head
+    position: relative
+    max-width: 915px
+    font-size: 100px
+    line-height: 120px
+    color: $white
+    z-index: 5
+  &__btn
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    height: 22px
+    width: 25px
+    cursor: pointer
+    z-index: 12
+    &-prev
+      left: calc(50% - 553px)
+    &-fill
+      width: 100%
+      height: 100%
+      fill: #B2B2B2
+      object-fit: cover
+      transition: fill 0.3 ease-in-out
+    &-next
+      right: calc(50% - 553px)
+      transform: rotate(180deg) translateY(50%)

@@ -1,0 +1,35 @@
+.header
+  padding: 30px 0
+  // background-color: drop
+  box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.25)
+  // background-color: #c3dde7
+  // @include mediaTablet
+  //   position: fixed
+  //   background-color: $text
+  //   box-shadow: 0 1px 35px 0 rgba($black, 0.1)
+  //   z-index: 100
+  //   width: 100%
+  @include mediaPhone
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 7
+    background-color: $green
+
+  &__container
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    gap: 0 20px
+
+  &__logo
+    width: 37px
+    height: 40px
+    margin-right: auto
+    @include mediaPhone
+      z-index: 5
+
+  &__menu
+    margin-left: 50px
+

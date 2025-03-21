@@ -1,0 +1,465 @@
+.menu
+  //--- ВЫСОТА БУРГЕРА
+  --height-span: 22px
+  //--- ШИРИНА БУРГЕРА
+  --width-span: 30px
+  //--- ТОЛЩИНА ПОЛОСКИ БУРГЕРА
+  --weight-span: 2px
+  // margin-left: 50px
+  &__body
+    // margin-top: -5px
+    @include mediaPhone
+      position: fixed
+      top: 0
+      right: -100%
+      width: 100%
+      height: 100%
+      padding: 150px 30px 50px 30px
+      // ---------- ЦВЕТ ФОНА У МЕНЮ
+      background-color: rgba($green, 0.9)
+      overflow: auto
+      transition: right 0.3s ease
+      z-index: 2
+      // justify-content: flex-end
+      // подложка под верхнее меню, если оно имеет фон
+      &::before
+        content: ''
+        position: fixed
+        top: 0
+        right: -100%
+        width: 100%
+        height: 100px
+        // ---------- ЦВЕТ ФОНА У ШАПКИ
+        background-color: $green
+        // background-color: $text
+        transition: right 0.3s ease
+        z-index: 2
+    &._active
+      right: 0
+      // для ORDER меню 
+      display: flex
+      flex-direction: column
+      &::before
+        right: 0
+  &__list
+    @include fx-all
+    flex-wrap: wrap
+    gap: 1px 20px
+    justify-content: flex-end
+    @include mediaNotebook
+      // flex-wrap: wrap
+    @include mediaPhone
+      flex-direction: column
+      align-items: flex-end
+      justify-content: flex-start
+      order: 2
+      margin-bottom: 20px
+    & .menu-item-has-children > a
+      &::after
+        content: ''
+        position: relative
+        top: 5px
+        right: -4px
+        width: 11px
+        height: 11px
+        background: url("../images/icons/sprite.svg#arrow-down") center / cover no-repeat
+        @include mediaPhone
+          width: 22px
+          height: 22px
+          // padding: 7px
+          // border: 1px solid $white
+
+    // submenu TEST
+    & li a
+      padding: 10px
+      display: flex
+      justify-content: space-between
+      transition: color 0.3s ease
+      @media (any-hover: hover) and (pointer: fine)
+      &:hover
+        color: $black
+        // background-color: lighten($black, 3)
+        // &:last-child a
+        //   color: $white
+      @include mediaNotebook
+        // padding: 15px 10px
+        // margin-bottom: 7px
+      @include mediaPhone
+        width: 100%
+        padding: 10px 0px
+        // margin-bottom: 0
+        color: $white
+    & li.current-menu-item a
+      color: $black
+      // background-color: lighten($black, 3)
+    & li ul
+      position: absolute
+      left: 0
+      width: auto
+      background-color: lighten($black, 1)
+      z-index: 50
+      //display: none
+      overflow: hidden
+      max-height: 0
+      opacity: 0
+      top: 65px
+      pointer-events: none
+      transition: max-height .4s ease-out, opacity 0.3s, top 0.3s
+      @include mediaPhone
+        position: relative
+        width: 100%
+        left: 0
+    & li:hover > ul
+      max-height: 500px
+      opacity: 1
+      pointer-events: initial
+      top: 60px
+      transition: top 0.3s
+      @include mediaPhone
+        top: 0
+        background-color: lighten($black, 3)
+    & li ul li
+      width: 100%
+      border-top: 1px solid rgba(0, 0, 0, 0.2)
+      @include mediaPhone
+        border: none
+        & a
+          padding-left: 40px
+
+  &__item
+    position: relative
+    @include fx-all
+    flex-wrap: wrap
+    @include font(600, 16, 20)
+    color: rgba($black, 0.3) // ---------- ЦВЕТ ССЫЛОК НА ДЕСКТОПЕ
+    text-transform: uppercase
+    transition: color 0.3s ease
+    // &:not(:last-child)
+    //   margin-right: 39px
+    // нижняя линия при наведении
+    // &::before
+    //   position: absolute
+    //   content: ''
+    //   display: block
+    //   bottom: -6px
+    //   width: 0%
+    //   height: 2px
+    //   background-color: $white
+    //   transition: width 0.5s ease
+    @media (any-hover: hover) and (pointer: fine)
+      &:hover
+        &::before
+          width: 100%
+        // &:last-child a
+        //   color: $white
+
+    // уточнить!!!
+    // &:last-child a
+    //   transition: 0.3s linear
+    //   margin-left: 120px
+
+
+    // субменю
+    // @media (any-hover: hover) and (pointer: fine)
+    //   &:hover
+    //     .menu__sub-list
+    //       visibility: visible
+    //       pointer-events: auto
+    //       opacity: 1
+    //       transform: translate(0px, 0px)
+    //     .menu__arrow
+    //       transform: rotate(-180deg)
+    //     .menu__arrow
+    //       color: $black
+    // @media (min-width: 768px)
+    //   &._hover
+    //     .menu__sub-list
+    //       visibility: visible
+    //       pointer-events: auto
+    //       opacity: 1
+    //       transform: translate(0px, 0px)
+    //     .menu__arrow
+    //       transform: rotate(-180deg)
+    @include mediaPhone
+      margin-bottom: 10px
+      font-weight: 800
+      font-size: 32px
+      // ---------- ЦВЕТ ССЫЛОК НА МОБИЛКАХ
+      color: $text
+      &::before
+        content: none
+      &:not(:last-child)
+        margin-right: 0
+        margin-bottom: 0
+  // стрелка
+  // &__arrow
+  //   width: 12px
+  //   height: 12px
+  //   margin-left: 4px
+  //   // margin-top: -10px
+  //   border: none
+  //   background-color: transparent
+  //   background-image: url(../images/icons/sprite.svg#arrow-menu)
+  //   background-repeat: no-repeat
+  //   background-size: 10px
+  //   background-position: center
+  //   outline: none
+  //   cursor: pointer
+  //   transition: all 0.5s ease
+  //   // transform: rotate(90deg)
+
+  // &__sub-list
+  //   position: relative
+  //   flex: 1 1 100%
+  //   padding: 15px
+  //   background-color: $orange
+  //   @media ( min-width: 768px )
+  //     position: absolute
+  //     left: 0
+  //     top: 100%
+  //     min-width: 50px
+  //     transition: all 0.5s ease
+  //     transform: translate(0px, 10px)
+  //     visibility: hidden
+  //     opacity: 0
+  //     pointer-events: none
+  // &__sub-item
+  //   line-height: 120%
+  //   color: $black
+  //   &:not(:last-child)
+  //     margin-bottom: 5px
+  //   a
+  //     color: $white
+  //     &:hover
+  //       text-decoration: underline
+
+  &__icon
+    display: none
+    @include mediaPhone
+      display: block
+      position: relative
+      //flex: 0 0 32px
+      // top: 18px
+      // right: 10px
+      width: var(--width-span) // ---------- ВЫСОТА БУРГЕРА
+      height: var(--height-span) // ---------- ШИРИНА БУРГЕРА
+      border: none
+      background-color: transparent
+      cursor: pointer
+      outline: none
+      z-index: 5
+      padding: 0
+    span
+      position: absolute
+      top: calc( 50% - 2px )
+      left: 0
+      width: 100%
+      height: var(--weight-span) // ---------- ТОЛЩИНА ПОЛОСКИ У БУРГЕРА
+      background-color: rgba($white, 0.9) // ---------- ЦВЕТ ПОЛОСОК У БУРГЕРА
+      &:first-child
+        top: 0
+        transition: transform .3s ease-in-out, top .3s ease-in-out, background-color .5s ease-out
+      &:last-child
+        top: auto
+        bottom: 0
+        transition: transform .3s ease-in-out, top .3s ease-in-out, background-color .5s ease-out
+    &._active
+      span
+        transform: scale(0)
+        background-color: $white // ---------- ЦВЕТ ПОЛОСОК У БУРГЕРА ПРИ ЗАКРЫТИИ
+        transition: transform 0.3s ease-in-out, background-color .5s ease-out
+        &:first-child
+          top: calc( 50% - 2px )
+          transform: rotate(-45deg)
+          transition: transform .3s ease-in-out, top .3s ease-in-out
+        &:last-child
+          top: calc( 50% - 2px )
+          transform: rotate(45deg)
+          transition: transform .3s ease-in-out, top .3s ease-in-out
+
+  // МЕНЮ ДЛЯ ЯЗЫКОВ
+  // @import 'language-menu'
+  &-languages
+    & li a::after
+      top: 0 !important
+    @include mediaPhone
+      align-self: flex-end
+      order: 1
+      & li
+        display: flex
+        & a
+          width: auto
+          // order: 2
+          &:hover
+            background-color: $black
+          &::after
+            content: none !important
+        & ul
+          // order: 1
+          width: auto
+          height: auto
+          max-height: none
+          position: relative
+          display: flex
+          align-items: center
+          top: 0
+          opacity: 1
+          background-color: $black
+          & a
+            padding-left: 10px !important
+            &:hover
+              background-color: $black
+
+    // меню языков в строку на мобилках 
+    @include mediaPhone
+      & li
+        display: flex
+        align-items: center
+        flex-wrap: nowrap
+      & li a
+        width: auto
+        font-size: 20px
+        padding-right: 0
+        &::after
+          content: none !important
+      & li ul
+        opacity: 1
+        top: 0
+        background-color: transparent
+        max-height: unset
+        display: flex
+        z-index: 1
+      & li ul a
+        font-size: 20px
+        padding-right: 0
+
+// подменю  
+.sub-menu
+  // visibility: hidden
+  // opacity: 0
+  // transition: all 0.5s ease
+  // height: 19px
+
+// .menu
+//   &-item-language
+//     @media (any-hover: hover) and (pointer: fine)
+//       &:hover
+//         .sub-menu
+//           pointer-events: auto
+//           margin-top: -5px
+//     @media (min-width: 768px)
+//       &._hover
+//         .menu__sub-list
+//           pointer-events: auto
+//           transform: translate(0px, 0px)
+
+//// мой код подменю
+
+.language-menu
+  z-index: 99
+  margin-left: 30px
+  @include mediaPhone
+    margin-left: auto
+    // margin-bottom: 40px
+    position: relative
+    top: -20px
+    display: none
+    // transform: translateX(-1000%)
+  &._active
+    // transform: translateX(0)
+    display: block
+
+.language-menu > ul
+  // display: inline-block
+  position: relative
+  pointer-events: auto
+  display: flex
+  align-items: center
+  & li ul li
+    width: 100%
+    border-top: 1px solid rgba(0, 0, 0, 0.2)
+    @include mediaPhone
+      border: none
+
+.language-menu > ul > li
+  display: flex
+  align-items: center
+  width: auto
+  flex-wrap: nowrap
+  // position: relative
+
+.language-menu > ul > li > ul
+  @include mediaPhone
+    opacity: 1
+    top: 0
+    width: auto
+    max-height: min-content
+    display: flex
+    align-items: center
+    background-color: $black
+
+.language-menu > ul > li a
+  display: block
+  // padding: 20px
+  transition: background-color 0.3s ease
+  @include mediaPhone
+    padding: 0
+    width: auto
+  @media (any-hover: hover) and (pointer: fine)
+    &:hover
+      background-color: lighten($black, 3)
+
+
+.language-menu > ul > li:hover ~ a
+  text-decoration: underline
+
+.menu-item-language
+  @include mediaPhone
+    display: flex
+    align-items: center
+
+.language-dropdown
+  background-color: $black
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3)
+  display: none
+  right: 0
+  // left: 0
+  // min-width: 120px
+  // padding: 5px 20px
+  position: absolute
+  // top: 2px
+  z-index: 100
+  // left: -27px
+  @include mediaPhone
+    display: flex
+    position: relative
+    top: 0
+    left: 0
+    background-color: transparent
+    z-index: 10
+    box-shadow: none
+
+.language-dropdown a
+  color: $white
+  display: block
+  font-size: 14px
+  line-height: 1.5em
+  padding: 10px
+  text-transform: capitalize
+  @include mediaPhone
+    padding: 6px 0
+    font-size: 16px
+    color: $white
+
+@media ( min-width: 768px  )
+  .language-menu > ul > li:hover .language-dropdown
+    display: block
+
+  .language-dropdown a
+    // display: block
+    padding: 8px 25px !important
+    cursor: pointer
+  .language-dropdown li:hover
+    background-color: $black
+  .language-dropdown li:hover a
+    color: $white !important

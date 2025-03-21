@@ -1,0 +1,54 @@
+{
+  "name": "gulp-start",
+  "version": "2.2.0",
+  "description": "My Gulptask v2.2",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build --build",
+    "fonts": "gulp fonts",
+    "svg": "gulp svg",
+    "favicon": "gulp favicon"
+  },
+  "author": "Stas Kolokolov",
+  "license": "ISC",
+  "overrides": {
+    "xmldom": "npm:@xmldom/xmldom"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.9.8",
+    "dayjs": "^1.11.13",
+    "gulp-cli": "^2.3.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-favicons": "^4.0.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-filter": "^7.0.0",
+    "gulp-fonter-2": "^0.3.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-svg-sprite": "^2.0.3",
+    "gulp-svgo": "^2.2.1",
+    "gulp-ttf2woff2": "^4.0.1",
+    "gulp-webp": "^4.0.1",
+    "gulp-webp-html": "^1.0.2",
+    "sass": "^1.69.7",
+    "swiper": "^9.4.1",
+    "webpack": "^5.82.1",
+    "webpack-stream": "^7.0.0"
+  }
+}

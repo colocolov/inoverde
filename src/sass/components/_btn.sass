@@ -1,0 +1,63 @@
+.btn-reset
+  padding: 0
+  border: none
+  background-color: transparent
+  cursor: pointer
+  outline: none
+
+.btn
+  // align-self: center // если кнпка находится во flex-контейнере и нужно выровнять ее по середине
+  display: inline-block
+  background: $brown
+  // border-radius: 20px
+  // border: 2px solid $green
+  padding: 13px 28px
+  color: $white
+  @include font(700, 16, 18)
+  text-align: center
+  text-transform: uppercase
+  border: 2px solid $brown
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.3s ease
+  &:focus
+    outline: none
+    // background: $gradient-dark
+    // color: $white
+  &:active // НАЖАТИЕ
+    transform: translateY(2px)
+    background: transporent
+    color: $brown
+  @media (any-hover: hover) and (pointer: fine)
+    &:hover
+      // transform: translateY(-4px)
+      background: transparent
+      color: $brown
+  &-error
+    margin-top: 20px
+  &--hero
+    margin-top: 20px
+
+
+// стрелки слайдера
+.navigation
+  display: flex
+  align-items: center
+  &__btn
+    width: 50px
+    height: 50px
+    cursor: pointer
+    transition: transform 0.5s ease-in-out
+    &-prev
+      transform: rotate(180deg)
+      // transform: rotate(90deg)
+      @media (any-hover: hover) and (pointer: fine)
+        &:hover
+          transform: translateX(-5px) rotate(180deg)
+    &-svg
+      width: 100%
+      height: 100%
+    &-next
+      @media (any-hover: hover) and (pointer: fine)
+        &:hover
+          transform: translateX(5px)
+    &:focus
+      outline: none
