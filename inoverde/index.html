@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta name="theme-color" content="#111111">
   <!-- подключение стилей -->
-  <link rel="stylesheet" href="css/style.min.css?ver=03211650">
+  <link rel="stylesheet" href="css/style.min.css?ver=03241650">
   <!-- подключение скриптов -->
-  <script defer src="js/main.min.js?ver=03211650"></script>
+  <script defer src="js/main.min.js?ver=03241650"></script>
   <!-- подключение favicon -->
   <!-- <link rel="icon" href="images/favicon/favicon.svg" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -27,12 +27,11 @@
       <nav class="menu__body" title="Main navigation">
         <ul class="menu__list">
           <li class="menu__item current-menu-item"><a class="menu__link" href="/">Home</a></li>
-          <li class="menu__item"><a class="menu__link" href="#">DESPRE NOI</a></li>
+          <li class="menu__item"><a class="menu__link" href="#about">DESPRE NOI</a></li>
           <li class="menu__item"><a class="menu__link" href="#">PORTFOLIO</a></li>
-          <li class="menu__item"><a class="menu__link" href="#">FILOSOFIA NOASTRĂ</a></li>
           <li class="menu__item"><a class="menu__link" href="#">PROCESUL DE LUCRU</a></li>
           <li class="menu__item"><a class="menu__link" href="#">SERVICIILE NOASTRE</a></li>
-          <li class="menu__item"><a class="menu__link" href="#">CONTACTE</a></li>
+          <li class="menu__item"><a class="menu__link" href="#contacts">CONTACTE</a></li>
 
         </ul>
       </nav>
@@ -43,16 +42,14 @@
       </button>
     </div><!-- /.menu -->
 
-    <!-- <ul class="menu-languages menu__list" data-da=".menu__body,767.98,1">
-      <li class="menu-item-language wpml-ls-item wpml-ls-current-language menu__item">
-        <a href="#" class="menu__link">Ru</a>
+    <ul class="menu-languages menu__list" data-da=".menu__body,767.98,1">
+      <li class="menu-item-language wpml-ls-item wpml-ls-current-language menu__item current-menu-item">
+        <a href="#" class="menu__link">Ro</a>
         <ul class="sub-menu2 language-dropdow2n">
-          <li class="menu-item-language2 wpml-ls-item2"><a href="#">Ro</a></li>
-          <li class="menu-item-language2 wpml-ls-item2"><a href="#">En</a></li>
+          <li class="menu-item-language2 wpml-ls-item2"><a href="#">Ru</a></li>
         </ul>
       </li>
-    </ul> -->
-    <!-- /.languages -->
+    </ul> <!-- /.languages -->
 
   </div><!-- /.container -->
 </header><!-- /.header -->
@@ -68,7 +65,7 @@
           <h1 class="heading hero__head">
             Inoverde Studio
           </h1>
-          <a href="#" class="btn-reset btn btn--hero">ContactaȚi-ne</a>
+          <a href="#contacts" class="btn-reset btn btn--hero">ContactaȚi-ne</a>
         </div>
         <div class="hero__img _ibg">
           <img src="images/bg/hero.jpg" loading="lazy" width="" height="" alt="">
@@ -76,35 +73,115 @@
       </div>
     </div><!-- /.hero__intro -->
 
-    <div class="hero__bottom">
-      <div class="hero__item">
-        Filosofia noastră se bazează pe crearea unor peisaje ce reflectă armonia dintre natură și nevoile umane. 
+    <div class="hero__bottom" data-step-delay="0.3">
+      <div class="hero__item animated-item">
+        <div class="animated-block" data-direction="up">
+          Filosofia noastră se bazează pe crearea unor peisaje ce reflectă armonia dintre natură și nevoile umane.
+        </div>
       </div>
-      <div class="hero__item">
-        Fiecare grădină are o poveste unică, iar rolul nostru este să aducem la viață acele povești, oferind frumusețe
-        durabilă.
+      <div class="hero__item animated-item">
+        <div class="animated-block" data-direction="up">
+          Fiecare grădină are o poveste unică, iar rolul nostru este să aducem la viață acele povești, oferind frumusețe
+          durabilă.
+        </div>
       </div>
-      <div class="hero__item">
-        Proiectăm peisaje autentice și sustenabile, unde estetica rafinată se îmbină cu principiile ecologice. 
+      <div class="hero__item animated-item">
+        <div class="animated-block" data-direction="up">
+          Proiectăm peisaje autentice și sustenabile, unde estetica rafinată se îmbină cu principiile ecologice.
+        </div>
       </div>
-      <div class="hero__item">
-        Punem accent pe funcționalitate, design personalizat și compoziții vegetale armonioase.
+      <div class="hero__item animated-item">
+        <div class="animated-block" data-direction="up">
+          Punem accent pe funcționalitate, design personalizat și compoziții vegetale armonioase.
+        </div>
       </div>
     </div><!-- /.hero__bottom -->
 
   </div><!-- /.hero__container -->
 </section><!-- /.hero -->
       <section class="photo">
-
-  <div class="photo__img _ibg">
-    <img src="images/bg/photo.jpg" loading="lazy" width="" height="" alt="">
+  <div class="photo__img parallax" style="--bg-image: url('../images/bg/photo.jpg')">
   </div>
-
 </section><!-- /.photo -->
+      <section class="about" id="about">
+  <div class="about__container">
+    <h2 class="heading about__head">Despre noi</h2>
+
+    <div class="about__inner">
+      <div class="about__left">
+        <div class="about__img _ibg">
+          <img src="images/bg/about.jpg" loading="lazy" width="420" height="558" alt="">
+        </div>
+        <a href="#contacts" class="btn-reset btn btn--about">CONTACTAȚI-NE</a>
+        <div class="about__experience">
+          <span>5</span> ani de EXPERIENȚĂ
+        </div>
+      </div>
+      <!-- /.about__left -->
+
+      <div class="about__right">
+        <div class="about__name">ANA VIȚA</div>
+        <div class="about__wrap" data-step-delay="0.9">
+          <div class="about__found">Fondatoarea <span>INOVERDE STUDIO</span></div>
+          <div class="about__item animated-item">
+            <div class="animated-block" data-direction="down">Ana Vița este fondatoarea INOVERDE STUDIO, îmbină cu
+              pasiune
+              experiența academică cu practica profesională pentru a crea
+              spații verzi care reflectă unicitatea fiecărui sit, punând accent pe un design armonios, ce îmbină
+              eleganța
+              și
+              funcționalitatea. De-a lungul carierei sale, Ana a realizat grădini și spații verzi în care
+              sustenabilitatea
+              și
+              reziliența la schimbările climatice sunt principii fundamentale ale abordării sale.</div>
+          </div>
+          <div class="about__item animated-item">
+            <div class="animated-block" data-direction="down">Pe lângă activitatea sa profesională, este Ambasador al
+              Pactului Climatic European, un rol prin care promovează soluții
+              ecologice inovatoare și educația climatică. De asemenea, este membră a Asociației Peisagiștilor din
+              România
+              (AsoP) și
+              participă activ la conferințe, ateliere și proiecte de cercetare privind spațiul public și peisajul urban.
+            </div>
+          </div>
+          <div class="about__item animated-item">
+            <div class="animated-block" data-direction="down">Prin integrarea cunoștințelor teoretice și a experienței
+              practice, își propune să redefinească fiecare spațiu verde,
+              creând un mediu echilibrat și plin de caracter, perfect adaptat cerințelor specifice ale fiecărui client
+              și
+              contextului
+              local.</div>
+          </div>
+          <div class="about__item animated-item">
+            <div class="animated-block" data-direction="down">
+              <p>INOVERDE STUDIO este o firmă de proiectare peisagistică cu sediul în România și Republica Moldova.
+                Oferim
+                soluții
+                inovative care se aliniază nevoilor și viziunii fiecărui client.</p>
+              <p>Realizăm grădini private și amenajăm spații publice cu o abordare creativă, transformând fiecare
+                proiect
+                într-un loc
+                care inspiră și relaxează. Fiecare grădină pe care o proiectăm reflectă dorințele clientului, iar
+                spațiile
+                publice sunt
+                concepute pentru a oferi o experiență memorabilă și durabilă. Fiecare detaliu este gândit pentru a crea
+                un
+                mediu
+                echilibrat și plăcut.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.about__right -->
+    </div>
+    <!-- /.about__inner -->
+
+  </div><!-- /.about__container -->
+</section><!-- /.about -->
 
     </main>
 
-    <footer class="footer">
+    <footer class="footer" id="contacts">
   <div class="footer__container">Footer</div><!-- /.container -->
 </footer><!-- /.footer -->
   </div><!-- /.wrapper -->

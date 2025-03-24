@@ -125,7 +125,7 @@ a:hover {
   font-family: "CormorantGaramond", serif;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 50px;
   line-height: 1.2;
 }
 
@@ -759,7 +759,7 @@ input {
   outline: none;
 }
 
-.btn {
+a.btn {
   display: inline-block;
   background: #605245;
   padding: 13px 28px;
@@ -772,24 +772,24 @@ input {
   border: 2px solid #605245;
   transition: background 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.3s ease;
 }
-.btn:focus {
+a.btn:focus {
   outline: none;
 }
-.btn:active {
+a.btn:active {
   transform: translateY(2px);
   background: transporent;
   color: #605245;
 }
 @media (any-hover: hover) and (pointer: fine) {
-  .btn:hover {
+  a.btn:hover {
     background: transparent;
     color: #605245;
   }
 }
-.btn-error {
+a.btn-error {
   margin-top: 20px;
 }
-.btn--hero {
+a.btn--hero {
   margin-top: 20px;
 }
 
@@ -874,6 +874,7 @@ input {
 .hero__item {
   padding-bottom: 10px;
   border-bottom: 2px solid #AFA695;
+  overflow: hidden;
 }
 
 .hero {
@@ -926,14 +927,100 @@ input {
 .hero__item {
   padding-bottom: 10px;
   border-bottom: 2px solid #AFA695;
+  overflow: hidden;
 }
 
 .photo {
+  margin-top: var(--sectionPaddingTop);
+  margin-bottom: var(--sectionPaddingBottom);
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -1;
+}
+
+.about {
   padding-top: var(--sectionPaddingTop);
   padding-bottom: var(--sectionPaddingBottom);
 }
-.photo__img {
-  padding-bottom: 500px;
+.about__inner {
+  display: flex;
+  gap: 20px;
+}
+.about__head {
+  margin-bottom: 40px;
+}
+.about__left {
+  border-top: 2px solid #556250;
+  padding-top: 20px;
+  flex-basis: 50%;
+}
+.about__img {
+  padding-bottom: 558px;
+  max-width: 420px;
+  margin-bottom: 90px;
+  overflow: hidden;
+}
+.about__img img {
+  transition: transform 0.7s ease-in;
+}
+@media (any-hover: hover) and (pointer: fine) {
+  .about__img:hover img {
+    transform: scale(1.02);
+  }
+}
+.about__experience {
+  margin-top: 20px;
+  font-size: 48px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #556250;
+}
+.about__right {
+  border-top: 2px solid #556250;
+  padding-top: 20px;
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.about__name {
+  font-size: 32px;
+  color: #556250;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.about__found {
+  color: #556250;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.about__found span {
+  text-transform: uppercase;
+  font-family: "CormorantGaramond", serif;
+  font-weight: 400;
+}
+.about__item {
+  border-top: 2px solid #556250;
+  padding-top: 20px;
+}
+.about__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+.about__item p:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .footer {
@@ -951,5 +1038,85 @@ input {
   cursor: pointer;
 }
 
+@media (min-width: 992px) {
+  .benefits__arrow {
+    animation: move-down 5s infinite linear;
+    backface-visibility: hidden;
+    animation-fill-mode: backwards;
+  }
+}
+@keyframes move-down {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  30% {
+    transform: translate(0px, 100px) scale(1.1);
+  }
+  45% {
+    transform: translate(0px, 70px) scale(1);
+  }
+  70% {
+    transform: translate(0px, 100px) scale(1.1);
+  }
+  100% {
+    transform: translate(0px, 90px) scale(1);
+  }
+}
+@keyframes leftToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+/* АНИМАЦИЯ ТЕКСТА СЛЕВА СПРАВА СНИЗУ И СВЕРХУ */
+.animated-item {
+  overflow: hidden;
+}
+
+.animated-block {
+  opacity: 0;
+  animation: slide-in 0.8s ease-out forwards;
+}
+
+/* Базовые настройки анимации */
+@keyframes slide-in {
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+/* Направления анимации */
+.animated-block[data-direction=left],
+.animated-block:not([data-direction]) {
+  transform: translateX(-100%);
+}
+
+.animated-block[data-direction=left] {
+  transform: translateX(100%);
+}
+
+.animated-block[data-direction=up] {
+  transform: translateY(100%);
+}
+
+.animated-block[data-direction=down] {
+  transform: translateY(-100%);
+}
+
+/* Опционально - динамическое появление при скролле */
+@media (prefers-reduced-motion: no-preference) {
+  .animated-block {
+    animation-duration: 0.8s;
+    animation-delay: 0.5s;
+  }
+}
+/* END of АНИМАЦИЯ */
 /* No styles code below. Only in modules. */
 /* Не пишите CSS код ниже. Только в подключаемых файлах  */

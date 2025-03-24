@@ -3,7 +3,8 @@ import vars from "./_vars.js";
 
 // мои модули
 import "./modules/nav.js";
-//import "./modules/dinam-adap.js";
+import "./modules/AnimateText.js";
+import "./modules/dinam-adap.js";
 //import "./modules/main-slider.js";
 
 //import "./modules/modal.js";

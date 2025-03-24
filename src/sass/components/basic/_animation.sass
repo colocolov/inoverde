@@ -1,12 +1,11 @@
 @media ( min-width: 992px )
   .benefits__arrow
-            // имя  / продолжительность / ?? / ?? / время задерржки 
+    // имя  / продолжительность / ?? / ?? / время задерржки 
     animation: move-down 5s infinite linear
     // снимает дергание анимации
     backface-visibility: hidden
     // сохраняет перввй кадр анимации, если еть задержка
     animation-fill-mode: backwards
-
 
 @keyframes move-down
   0%
@@ -29,3 +28,37 @@
   100%
     opacity: 1
     transform: translateX(0px)
+
+
+/* АНИМАЦИЯ ТЕКСТА СЛЕВА СПРАВА СНИЗУ И СВЕРХУ */
+.animated-item
+  overflow: hidden
+
+.animated-block
+  opacity: 0
+  animation: slide-in 0.8s ease-out forwards
+
+/* Базовые настройки анимации */
+@keyframes slide-in
+  to
+    opacity: 1
+    transform: translate(0, 0)
+
+/* Направления анимации */
+.animated-block[data-direction="left"],
+.animated-block:not([data-direction])
+  transform: translateX(-100%)
+
+.animated-block[data-direction="left"]
+  transform: translateX(100%)
+.animated-block[data-direction="up"]
+  transform: translateY(100%)
+.animated-block[data-direction="down"]
+  transform: translateY(-100%)
+/* Опционально - динамическое появление при скролле */
+@media (prefers-reduced-motion: no-preference)
+  .animated-block
+    animation-duration: 0.8s
+    animation-delay: 0.5s
+
+/* END of АНИМАЦИЯ */

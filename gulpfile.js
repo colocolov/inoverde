@@ -22,7 +22,7 @@ import { js } from "./gulp/tasks/js.js";
 import { html } from "./gulp/tasks/html.js";
 import { images } from "./gulp/tasks/images.js";
 import { svgSprite } from "./gulp/tasks/svg.js";
-import { otfToTtf, ttfToWoff } from "./gulp/tasks/fonts.js";
+import { ttfToWoff } from "./gulp/tasks/fonts.js";
 import { server } from "./gulp/tasks/server.js";
 import { favicon } from "./gulp/tasks/favicon.js";
 
@@ -36,7 +36,7 @@ function watcher() {
   gulp.watch(path.watch.files, copy);
 }
 // Последовательная обработка шрифтов
-const fonts = gulp.series(otfToTtf, ttfToWoff);
+const fonts = gulp.series(ttfToWoff);
 
 // Основные задачи
 const mainTasks = gulp.parallel(copy, sass, html, js, images, svgSprite);

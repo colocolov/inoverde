@@ -1,0 +1,61 @@
+.about
+  padding-top: var(--sectionPaddingTop)
+  padding-bottom: var(--sectionPaddingBottom)
+
+  &__container
+  &__inner
+    display: flex
+    gap: 20px
+  &__head
+    margin-bottom: 40px
+  &__left
+    border-top: 2px solid $green
+    padding-top: 20px
+    flex-basis: 50%
+  &__img
+    padding-bottom: 558px
+    max-width: 420px
+    margin-bottom: 90px
+    overflow: hidden
+    img
+      transition: transform 0.7s ease-in
+    @media (any-hover: hover) and (pointer: fine)
+      &:hover
+        img
+          transform: scale(1.02)
+  &__experience
+    margin-top: 20px
+    font-size: 48px
+    text-transform: uppercase
+    font-weight: 700
+    color: $green
+  &__right
+    border-top: 2px solid $green
+    padding-top: 20px
+    flex-basis: 50%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+  &__name
+    font-size: 32px
+    color: $green
+    text-transform: uppercase
+    font-weight: 700
+  &__wrap
+    // margin-top: auto
+  &__found
+    color: $green
+    font-weight: 700
+    margin-bottom: 20px
+    span
+      text-transform: uppercase
+      font-family: $font-second
+      font-weight: 400
+
+  &__item
+    border-top: 2px solid $green
+    padding-top: 20px
+    &:not(:last-child)
+      margin-bottom: 20px
+    p:not(:last-child)
+      margin-bottom: 20px
