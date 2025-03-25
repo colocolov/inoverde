@@ -35,6 +35,10 @@ $mobileSmall: 479.98px // Телефоны S - 480px
   // СДЕЛАТЬ ВЕРХНИЙ И НИЖНИЙ ОТСТУП У SECTION
   --sectionPaddingTop: 40px
   --sectionPaddingBottom: 40px
+  @include mediaPhone
+    --sectionPaddingTop: 32px
+    --sectionPaddingBottom: 32px
+
   // ---------------- END
 
 %body
@@ -48,3 +52,6 @@ $mobileSmall: 479.98px // Телефоны S - 480px
   font-family: $font-second
   text-transform: uppercase
   @include font(700, 50, calc(50 * 1.2))
+  @include mediaPhone
+    font-size: 30px
+    text-align: center
