@@ -5,6 +5,7 @@ import vars from "./_vars.js";
 import "./modules/nav.js";
 import "./modules/AnimateText.js";
 import "./modules/dinam-adap.js";
+import "./modules/carousel.js";
 //import "./modules/main-slider.js";
 
 //import "./modules/modal.js";

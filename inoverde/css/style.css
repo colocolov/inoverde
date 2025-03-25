@@ -441,7 +441,7 @@ input {
   max-height: 500px;
   opacity: 1;
   pointer-events: initial;
-  top: 60px;
+  top: 40px;
   transition: top 0.3s;
 }
 @media screen and (max-width: 767.98px) {
@@ -459,6 +459,7 @@ input {
     border: none;
   }
   .menu__list li ul li a {
+    color: inherit;
     padding-left: 40px;
   }
 }
@@ -546,6 +547,9 @@ input {
 }
 .menu-languages li a::after {
   top: 0 !important;
+}
+.menu-languages ul li a {
+  color: #F6F6F6 !important;
 }
 @media screen and (max-width: 767.98px) {
   .menu-languages {
@@ -953,7 +957,7 @@ a.btn--hero {
 
 .about {
   padding-top: var(--sectionPaddingTop);
-  padding-bottom: var(--sectionPaddingBottom);
+  padding-bottom: 80px;
 }
 .about__inner {
   display: flex;
@@ -1023,6 +1027,168 @@ a.btn--hero {
   margin-bottom: 20px;
 }
 
+.carousel {
+  width: 100vw;
+  height: 900px;
+  overflow: hidden;
+  position: relative;
+}
+.carousel.next .carousel__list .carousel__list-item:nth-child(1) img {
+  width: 150px;
+  height: 220px;
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  border-radius: 20px;
+  animation: showImage 0.5s linear 1 forwards;
+}
+.carousel.next .carousel__thumbnail .carousel__thumbnail-item:nth-last-child(1) {
+  overflow: hidden;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+.carousel.next .carousel__thumbnail {
+  animation: transforThumbnail 0.5s linear 1 forwards;
+}
+.carousel.prev .carousel__list .carousel__list-item img {
+  z-index: 100;
+}
+.carousel.prev .carousel__list .carousel__list-item:nth-child(2) {
+  z-index: 2;
+}
+.carousel.prev .carousel__list .carousel__list-item:nth-child(2) img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: outImage 0.5s linear 1 forwards;
+}
+.carousel.prev .carousel__thumbnail .carousel__thumbnail-item:nth-child(1) {
+  overflow: hidden;
+  opacity: 0;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+.carousel.next .carousel__time, .carousel.prev .carousel__time {
+  animation: runningTime 3s linear 1 forwards;
+}
+.carousel__list-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0 0 0 0;
+}
+.carousel__list-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel__list-item:nth-child(1) {
+  z-index: 1;
+}
+.carousel__thumbnail {
+  position: absolute;
+  bottom: 50px;
+  left: 60%;
+  width: max-content;
+  z-index: 100;
+  display: flex;
+  gap: 20px;
+}
+.carousel__thumbnail-item {
+  width: 150px;
+  height: 220px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease-in;
+  cursor: pointer;
+}
+.carousel__thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (any-hover: hover) and (pointer: fine) {
+  .carousel__thumbnail-item:hover {
+    transform: scale(1.01);
+  }
+}
+.carousel__arrows {
+  position: absolute;
+  bottom: 50px;
+  left: 10%;
+  width: 150px;
+  max-width: 30%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.carousel__arrows button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(47, 47, 47, 0.5);
+  border: none;
+  color: #F6F6F6;
+  font-weight: 600;
+  font-size: large;
+  transition: all 0.5s ease-in;
+  z-index: 100;
+  cursor: pointer;
+}
+@media (any-hover: hover) and (pointer: fine) {
+  .carousel__arrows button:hover {
+    background-color: #F6F6F6;
+    color: rgba(47, 47, 47, 0.5);
+  }
+}
+.carousel__time {
+  position: absolute;
+  z-index: 1000;
+  width: 0%;
+  height: 3px;
+  background-color: #f1683a;
+  left: 0;
+  top: 0;
+}
+
+@keyframes showImage {
+  to {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+}
+@keyframes showThumbnail {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+}
+@keyframes transforThumbnail {
+  from {
+    transform: translateX(150px);
+  }
+}
+@keyframes outImage {
+  to {
+    width: 150px;
+    height: 220px;
+    left: 50%;
+    bottom: 50px;
+    border-radius: 10px;
+  }
+}
+@keyframes runningTime {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
 .footer {
   background-color: #556250;
   padding: 60px 0;

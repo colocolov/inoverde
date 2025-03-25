@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta name="theme-color" content="#111111">
   <!-- подключение стилей -->
-  <link rel="stylesheet" href="css/style.min.css?ver=03241650">
+  <link rel="stylesheet" href="css/style.min.css?ver=03251452">
   <!-- подключение скриптов -->
-  <script defer src="js/main.min.js?ver=03241650"></script>
+  <script defer src="js/main.min.js?ver=03251452"></script>
   <!-- подключение favicon -->
   <!-- <link rel="icon" href="images/favicon/favicon.svg" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -73,7 +73,7 @@
       </div>
     </div><!-- /.hero__intro -->
 
-    <div class="hero__bottom" data-step-delay="0.3">
+    <div class="hero__bottom" data-scroll-animation data-step-delay="0.3">
       <div class="hero__item animated-item">
         <div class="animated-block" data-direction="up">
           Filosofia noastră se bazează pe crearea unor peisaje ce reflectă armonia dintre natură și nevoile umane.
@@ -121,7 +121,7 @@
 
       <div class="about__right">
         <div class="about__name">ANA VIȚA</div>
-        <div class="about__wrap" data-step-delay="0.9">
+        <div class="about__wrap" data-scroll-animation data-step-delay="0.9">
           <div class="about__found">Fondatoarea <span>INOVERDE STUDIO</span></div>
           <div class="about__item animated-item">
             <div class="animated-block" data-direction="down">Ana Vița este fondatoarea INOVERDE STUDIO, îmbină cu
@@ -178,6 +178,46 @@
 
   </div><!-- /.about__container -->
 </section><!-- /.about -->
+      <section class="carousel" data-running="3000" data-autonext="3500">
+  <div class="carousel__list">
+
+    <div class="carousel__list-item">
+      <img src="images/bg/hero.jpg" loading="lazy" width="" height="" alt="">
+    </div><!-- /.carousel__item -->
+
+    <div class="carousel__list-item">
+      <img src="images/bg/photo.jpg" loading="lazy" width="" height="" alt="">
+    </div><!-- /.carousel__item -->
+
+    <div class="carousel__list-item">
+      <img src="images/bg/carousel.jpg" loading="lazy" width="" height="" alt="">
+    </div><!-- /.carousel__item -->
+  </div>
+  <!-- /.carousel__list -->
+
+  <div class="carousel__thumbnail">
+    <div class="carousel__thumbnail-item">
+      <img src="images/bg/hero.jpg" loading="lazy" width="" height="" alt="">
+    </div>
+    <div class="carousel__thumbnail-item">
+      <img src="images/bg/photo.jpg" loading="lazy" width="" height="" alt="">
+    </div>
+    <div class="carousel__thumbnail-item">
+      <img src="images/bg/carousel.jpg" loading="lazy" width="" height="" alt="">
+    </div>
+  </div>
+  <!-- /.carousel__thumbnail -->
+
+  <div class="carousel__arrows">
+    <button id="prev">
+      < </button>
+        <button id="next"> > </button>
+  </div>
+  <!-- /.carousel__arrows -->
+
+  <div class="carousel__time"></div>
+
+</section><!-- /.carousel -->
 
     </main>
 

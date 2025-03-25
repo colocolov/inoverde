@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Функция для инициализации анимации
-  function initScrollAnimation(containerSelector) {
-    const container = document.querySelector(containerSelector);
-    if (!container) return;
-
+  // Находим все контейнеры с data-атрибутом
+  const containers = document.querySelectorAll('[data-scroll-animation]');
+  
+  containers.forEach(container => {
     const items = container.querySelectorAll('.animated-item');
     const stepDelay = container.dataset.stepDelay || '0.2';
 
@@ -23,7 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
           items.forEach((item, index) => {
             const block = item.querySelector('.animated-block');
             if (block) {
-              block.style.animationDelay = `${index * parseFloat(stepDelay)}s`;
+              // Учитываем индивидуальную задержку (data-delay) если есть
+              const delay = block.dataset.delay || index * parseFloat(stepDelay);
+              block.style.animationDelay = `${delay}s`;
               block.style.animationPlayState = 'running';
             }
           });
@@ -36,11 +37,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     observer.observe(container);
-  }
-
-
-  // Инициализация для разных контейнеров
-  initScrollAnimation('.hero__bottom'); // На странице услуг
-  initScrollAnimation('.about__wrap');  // На странице "О нас"
-  // Добавляйте другие контейнеры по мере необходимости
+  });
 });
