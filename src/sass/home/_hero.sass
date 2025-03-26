@@ -18,6 +18,7 @@
   //   background: $gradient-dark
   //   z-index: 1
   @include mediaPhone
+    padding-top: 100px
     // --height: 600px
     // height: var(--height)
 
@@ -44,20 +45,39 @@
     // height: 100%
     flex-direction: column
     // z-index: 2
+    @include mediaPhoneMid
+      padding-right: 0
+      padding-left: 0
 
   &__intro
     margin-bottom: 68px
+    @include mediaPhoneMid
+      margin-bottom: 32px
   &__wrap
     display: flex
     align-items: center
-    gap: 50px
+    gap: clamp(25px, 35px, 50px)
     justify-content: space-between
+    @include mediaPhoneMid
+    position: relative
   &__text
     flex-basis: 48.8%
+    @include mediaPhoneMid
+      position: absolute
+      z-index: 2
+      min-width: 190px
+      left: 50%
+      bottom: 32px
+      transform: translateX(-50%)
   &__head
-    font-size: 128px
+    font-size: clamp(24px, -1.142rem + 10.75vw, 128px)
     line-height: 0.8
     color: $green
+    @include mediaPhoneMid
+      order: 2
+      font-size: 24px
+      text-align: center
+      z-index: 3
   &__img
     flex-basis: 51.1%
     flex-shrink: 1
@@ -69,11 +89,36 @@
       &:hover
         img
           transform: scale(1.02)
+    @include mediaTablet
+      padding-bottom: 500px
+    @include mediaTablet
+      flex-basis: 100%
+      padding-bottom: 553px
+    @include mediaPhoneMid
+      &::before
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        height: 326px
+        background: linear-gradient(180deg, rgba(235, 231, 228, 0) 0%, $bgc 100%)
+        z-index: 1
   &__bottom
     display: flex
     gap: 20px
     align-items: flex-end
+    @include mediaPhone
+      flex-wrap: wrap
+    @include mediaPhoneMid
+      padding-right: 15px
+      padding-left: 15px
   &__item
     padding-bottom: 10px
     border-bottom: 2px solid #AFA695
     overflow: hidden
+    @include mediaPhone
+      flex-basis: 48%
+    @include mediaPhoneMid
+      flex-basis: 100%
+

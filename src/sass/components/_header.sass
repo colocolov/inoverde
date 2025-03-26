@@ -14,14 +14,16 @@
     top: 0
     left: 0
     width: 100%
-    z-index: 7
-    background-color: $green
+    z-index: 27
+    background-color: $bgc
 
   &__container
     display: flex
     align-items: center
     justify-content: flex-end
     gap: 0 20px
+    @include mediaPhoneMid
+      justify-content: space-between
 
   &__logo
     width: 37px
@@ -29,7 +31,13 @@
     margin-right: auto
     @include mediaPhone
       z-index: 5
+    @include mediaPhoneMid
+      order: 1
+      margin-right: 0
 
   &__menu
     margin-left: 50px
+    @include mediaPhoneMid
+      order: 3
+      margin-left: 0
 
