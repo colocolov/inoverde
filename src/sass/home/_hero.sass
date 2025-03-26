@@ -73,6 +73,10 @@
     font-size: clamp(24px, -1.142rem + 10.75vw, 128px)
     line-height: 0.8
     color: $green
+    @include mediaPhone
+      border: none
+      width: auto
+      text-align: left
     @include mediaPhoneMid
       order: 2
       font-size: 24px

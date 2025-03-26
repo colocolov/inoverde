@@ -6,7 +6,9 @@ import "./modules/nav.js";
 import "./modules/AnimateText.js";
 import "./modules/dinam-adap.js";
 import "./modules/carousel.js";
-//import "./modules/main-slider.js";
+import "./modules/animateHeader.js";
+import "./modules/animateNumber.js";
+import "./modules/sliderPortfolio.js";
 
 //import "./modules/modal.js";
 

@@ -1,0 +1,42 @@
+.portfolio
+  --heightSlider: 399px
+  position: relative
+  padding-top: var(--sectionPaddingTop)
+  padding-bottom: var(--sectionPaddingBottom)
+  // max-height: 399px
+  @include mediaTablet
+    --heightSlider: 300px
+  @include mediaPhone
+    --heightSlider: 250px
+  & .container-right
+    // overflow: hidden
+    // height: 399px
+
+  &__head
+    margin-bottom: 40px
+    @include mediaPhone
+      margin-bottom: 21px
+
+  &__slider
+    width: 100% // задать по макету
+    height: var(--heightSlider) // задать по макету
+    overflow: hidden
+    &-wrap
+      height: var(--heightSlider)
+      display: flex
+
+  &__slide
+    // display: flex
+    // align-items: center
+    // justify-content: center
+    // background-position: center
+    // background-repeat: no-repeat
+    // background-size: cover
+    // width: 600px !important
+    height: var(--heightSlider)
+    flex-shrink: 0
+    img
+      object-fit: cover
+      height: 100%
+      width: 100%
+

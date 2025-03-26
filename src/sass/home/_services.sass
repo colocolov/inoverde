@@ -1,0 +1,83 @@
+.services
+  padding-top: var(--sectionPaddingTop)
+  padding-bottom: var(--sectionPaddingBottom)
+  &__container
+  &__top
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding-bottom: 40px
+    gap: 40px
+    border-bottom: 2px solid $green
+    @include mediaPhone
+      flex-direction: column
+      border-bottom: none
+      padding-bottom: 10px
+      gap: 16px
+
+  &__head
+  &__list
+  &__item
+    border-bottom: 2px solid $green
+    padding-top: 60px
+    padding-bottom: 60px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 130px
+    @include mediaTablet
+      gap: 50px
+    @include mediaPhone
+      padding-top: 40px
+      padding-bottom: 40px
+      gap: 30px
+    @include mediaPhoneMid
+      padding-top: 20px
+      padding-bottom: 20px
+      gap: 16px
+      align-items: stretch
+  &__data
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    gap: 30px
+    @include mediaPhone
+      align-items: flex-start
+      flex-wrap: wrap
+      // flex-direction: column
+      // min-height: 100%
+  &__num
+    color: rgba($black, 0.5)
+    font-size: 32px
+    font-weight: 600
+    flex-shrink: 0
+    &::after
+      content: ' /'
+      display: inline-block
+      width: 2px
+      height: 20px
+      color: rgba($black, 0.5)
+      // background-color: black
+      animation: blink 2s infinite
+    @include mediaPhoneMid
+      margin-bottom: auto
+  &__title
+    font-size: 36px
+    font-weight: 600
+    max-width: 560px
+    width: 100%
+    @include mediaPhone
+      font-size: 24px
+      // flex-grow: 1
+      margin-top: auto
+  &__text
+    max-width: 325px
+    @include mediaPhone
+      max-width: 45%
+
+@keyframes blink
+  0%, 100%
+    opacity: 1
+  50%
+    opacity: 0

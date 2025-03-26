@@ -1,0 +1,61 @@
+.results
+  padding-top: var(--sectionPaddingTop)
+  padding-bottom: 80px
+  border-bottom: 2px solid $green
+
+  &__container
+  &__head
+    margin-bottom: 60px
+  &__wrap
+    display: flex
+    gap: 30px
+    align-items: stretch
+    min-height: 100%
+    @include mediaPhone
+      flex-direction: column
+  &__left
+    display: flex
+    flex-direction: column
+    // align-items: flex-start
+    justify-content: space-between
+    height: 320px
+    flex-basis: 49%
+    // flex-shrink: 1
+    flex-wrap: wrap
+    gap: 30px
+    border: 1px solid transparent
+    min-height: 100%
+    & .btn
+      margin-top: 0 // Убираем auto
+      display: block
+      width: fit-content // Чтобы кнопка не растягивалась
+    @include mediaPhone
+      // justify-content: center
+      align-items: center
+      // flex-direction: column-reverse
+  &__info
+    margin-bottom: auto
+    border-bottom: 2px solid $green
+    font-size: 20px
+    font-weight: 600
+    width: 100%
+    margin-bottom: auto
+    max-width: 325px
+    span
+      @include font(400, 16, 18)
+      display: block
+      font-style: italic
+  &__right
+    flex-basis: 49%
+  &__list
+    display: flex
+    flex-wrap: wrap
+    gap: 40px 20px
+  &__item
+    flex-basis: 48%
+    @media screen and (max-width: 1099.98px)
+      flex-basis: 47%
+  &__title
+  &__num
+    color: $green
+    @include font(600, 64, 58)

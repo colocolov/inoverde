@@ -1,5 +1,5 @@
 export default {
   // slider
-  heroSliderEl: document.querySelector(".hero__slider"),
+  portfolioSliderEl: document.querySelector(".portfolio__slider"),
 
 };

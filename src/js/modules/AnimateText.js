@@ -1,5 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Находим все контейнеры с data-атрибутом
+document.addEventListener("DOMContentLoaded", function () {
+  // Первый скрипт - анимация текстовых блоков
+  const textBlocks = document.querySelectorAll(".text-animate");
+  const textObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const repeat = entry.target.dataset.repeat === "true";
+
+        if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+          entry.target.classList.add("visible");
+        } else if (repeat) {
+          entry.target.classList.remove("visible");
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  textBlocks.forEach((block) => textObserver.observe(block));
+
+  // Второй скрипт - анимация контейнеров с элементами
   const containers = document.querySelectorAll('[data-scroll-animation]');
   
   containers.forEach(container => {
@@ -16,19 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Создаем Observer
-    const observer = new IntersectionObserver((entries) => {
+    const containerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           items.forEach((item, index) => {
             const block = item.querySelector('.animated-block');
             if (block) {
-              // Учитываем индивидуальную задержку (data-delay) если есть
               const delay = block.dataset.delay || index * parseFloat(stepDelay);
               block.style.animationDelay = `${delay}s`;
               block.style.animationPlayState = 'running';
             }
           });
-          observer.unobserve(container);
+          containerObserver.unobserve(container);
         }
       });
     }, {
@@ -36,6 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
       rootMargin: '0px 0px -50px 0px'
     });
 
-    observer.observe(container);
+    containerObserver.observe(container);
   });
 });
