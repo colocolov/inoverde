@@ -14,8 +14,6 @@ let timeAutoNext = parseInt(carouselDom.dataset.autonext) || 5000;
 // 1. Заменяем старый код автопрокрутки на новый
 let autoPlayInterval;
 
-console.log(timeRunning);
-
 function startAutoPlay() {
     autoPlayInterval = setInterval(() => {
         nextDom.click();

@@ -1189,6 +1189,37 @@ a.btn--hero {
     width: 0;
   }
 }
+.secices {
+  padding-top: var(--sectionPaddingTop);
+  padding-bottom: var(--sectionPaddingBottom);
+}
+.secices__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  gap: 40px;
+  border-bottom: 2px solid #556250;
+}
+.secices__item {
+  border-bottom: 2px solid #556250;
+}
+.secices__num::before {
+  content: " /";
+  display: inline-block;
+  width: 2px;
+  height: 20px;
+  color: rgba(47, 47, 47, 0.5);
+  animation: blink 2s infinite;
+}
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
 .footer {
   background-color: #556250;
   padding: 60px 0;
