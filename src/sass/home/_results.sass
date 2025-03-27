@@ -1,11 +1,18 @@
 .results
   padding-top: var(--sectionPaddingTop)
-  padding-bottom: 80px
-  border-bottom: 2px solid $green
+  padding-bottom: var(--sectionPaddingBottom)
 
   &__container
+    padding-bottom: 80px
+    border-bottom: 2px solid $green
+    @include mediaPhone
+      padding-bottom: 0
+      border-bottom: none
+
   &__head
     margin-bottom: 60px
+    @include mediaPhone
+      margin-bottom: 32px
   &__wrap
     display: flex
     gap: 30px
@@ -13,49 +20,91 @@
     min-height: 100%
     @include mediaPhone
       flex-direction: column
+
   &__left
     display: flex
     flex-direction: column
-    // align-items: flex-start
+    align-items: flex-start
     justify-content: space-between
-    height: 320px
+    // height: 320px
     flex-basis: 49%
     // flex-shrink: 1
-    flex-wrap: wrap
+    // flex-wrap: wrap
     gap: 30px
     border: 1px solid transparent
     min-height: 100%
     & .btn
-      margin-top: 0 // Убираем auto
-      display: block
-      width: fit-content // Чтобы кнопка не растягивалась
+      // margin-top: 0 // Убираем auto
+      // display: block
+      // width: fit-content // Чтобы кнопка не растягивалась
     @include mediaPhone
       // justify-content: center
       align-items: center
+      margin-bottom: 32px
+      flex-basis: 100%
       // flex-direction: column-reverse
   &__info
-    margin-bottom: auto
+    // margin-bottom: auto
     border-bottom: 2px solid $green
     font-size: 20px
     font-weight: 600
     width: 100%
     margin-bottom: auto
     max-width: 325px
+    // flex-grow: 1
     span
       @include font(400, 16, 18)
       display: block
       font-style: italic
+    @include mediaPhone
+      text-align: center
   &__right
     flex-basis: 49%
+    @include mediaPhone
+      flex-basis: 100%
   &__list
     display: flex
     flex-wrap: wrap
     gap: 40px 20px
+    @include mediaPhone
+      gap: 16px
   &__item
     flex-basis: 48%
     @media screen and (max-width: 1099.98px)
       flex-basis: 47%
+    @include mediaPhone
+      flex-basis: 100%
+      display: flex
+      justify-content: space-between
+      align-items: center
+      // gap: 40px
+      position: relative
+      overflow: hidden
+      &::before
+        content: ''
+        position: absolute
+        top: 50%
+        left: 20px
+        width: 100%
+        height: 2px
+        background-color: $green
   &__title
+    @include mediaPhone
+      max-width: 47%
+      background-color: $bgc
+      position: relative
+      z-index: 2
+      padding-right: 20px
+    @include mediaPhoneSm
+      max-width: 60%
+      padding-right: 15px
   &__num
     color: $green
     @include font(600, 64, 58)
+    @include mediaPhone
+      background-color: $bgc
+      position: relative
+      z-index: 2
+      padding-left: 40px
+    @include mediaPhoneSm
+      padding-left: 30px

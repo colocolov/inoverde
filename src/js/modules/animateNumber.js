@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const duration = el.dataset.duration ? parseInt(el.dataset.duration, 10) : 2000; // Получаем длительность из `data-duration`, по умолчанию 2000 мс
                 const repeat = el.dataset.repeat === "true"; // Проверяем, указан ли `data-repeat="true"`
 
-                console.log(duration);
+                //console.log(duration);
 
                 animateCounter(el, 0, endValue, duration); // Запускаем анимацию
 

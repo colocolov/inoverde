@@ -9,6 +9,7 @@ import "./modules/carousel.js";
 import "./modules/animateHeader.js";
 import "./modules/animateNumber.js";
 import "./modules/sliderPortfolio.js";
+import "./modules/animateProgresLine.js";
 
 //import "./modules/modal.js";
 

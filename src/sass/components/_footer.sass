@@ -1,7 +1,10 @@
 .footer
+  padding-top: var(--sectionPaddingTop)
+  padding-bottom: var(--sectionPaddingBottom)
   background-color: $green
-  padding: 60px 0
   color: $white
+  @include mediaPhone
+    padding-bottom: 64px
 
   &__item
     transition: color 0.3s ease
@@ -10,3 +13,62 @@
     a
       cursor: pointer
 
+  &__container
+    display: flex
+    gap: 40px
+    @include mediaPhone
+      flex-direction: column
+      gap: 64px
+  &__left
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    flex-grow: 1
+    flex-basis: 49%
+    gap: 40px
+  &__head
+  &__address
+    @include mediaPhone
+      margin-bottom: 24px
+    &-info
+      &:not(:last-child)
+        margin-bottom: 20px
+    &-city
+      @include font(700, 20, 28)
+      @include mediaPhone
+        font-size: 20px
+    &-phone
+      @include font(700, 36, 42)
+      @include mediaPhone
+        font-size: 24px
+  &__data
+  &__social
+    margin-bottom: 20px
+    display: flex
+    a
+      color: #FCF0E4
+      text-transform: lowercase
+      font-size: 20px
+    svg
+      margin-left: 5px
+    @include mediaPhone
+      margin-bottom: 64px
+  &__email
+    @include font(700, 36, 36)
+    font-size: clamp(20px, 0.844rem + 1.65vw, 36px)
+  &__right
+    gap: 40px
+    flex-basis: 49%
+  &__info
+    @include mediaPhone
+      margin-bottom: 16px
+  &__title
+    @include font(700, 36, 42)
+    margin-bottom: 20px
+    @include mediaPhone
+      font-size: 24px
+  &__text
+    font-size: 20px
+    @include mediaPhone
+      font-size: 16px
+  &__form
