@@ -134,6 +134,11 @@ a:hover {
   font-size: 50px;
   line-height: 1.2;
 }
+@media screen and (max-width: 991.98px) {
+  .heading {
+    font-size: 42px;
+  }
+}
 @media screen and (max-width: 767.98px) {
   .heading {
     font-size: 30px;
@@ -802,15 +807,19 @@ input {
   display: flex;
   align-items: center;
 }
-.social li {
-  border-bottom: 1px solid #EBE7E4;
-}
-.social li:not(:last-child) {
-  margin-right: 20px;
+.social__icon {
+  display: flex;
+  align-items: center;
 }
 .social svg {
   width: 20px;
   height: 20px;
+}
+.social svg.linkedin, .social svg.ingtagram {
+  stroke: #FCF0E4;
+}
+.social svg.whatsapp, .social svg.viber, .social svg.telegram {
+  fill: #FCF0E4;
 }
 
 .btn-reset {
@@ -832,6 +841,7 @@ a.btn {
   text-align: center;
   text-transform: uppercase;
   border: 2px solid #605245;
+  min-width: max-content;
   transition: background 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.3s ease;
 }
 a.btn:focus {
@@ -2068,6 +2078,13 @@ a.btn--hero {
   font-weight: 700;
   font-size: 36px;
   line-height: 1.1666666667;
+  transition: color 0.3s ease-in, letter-spacing 0.3s ease-in;
+}
+@media (any-hover: hover) and (pointer: fine) {
+  .footer__address-phone:hover {
+    letter-spacing: 0.01em;
+    color: #FCF0E4;
+  }
 }
 @media screen and (max-width: 767.98px) {
   .footer__address-phone {
@@ -2077,11 +2094,43 @@ a.btn--hero {
 .footer__social {
   margin-bottom: 20px;
   display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 .footer__social a {
+  position: relative;
   color: #FCF0E4;
   text-transform: lowercase;
   font-size: 20px;
+  transition: color 0.3s ease-in;
+  padding-bottom: 2px;
+}
+.footer__social a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #FCF0E4;
+  transition: transform 0.4s ease-out;
+  transform: scaleX(1);
+  transform-origin: left;
+}
+@media (any-hover: hover) and (pointer: fine) {
+  .footer__social a:hover {
+    color: #F6F6F6;
+  }
+  .footer__social a:hover::before {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  .footer__social a:hover.linkedin, .footer__social a:hover.ingtagram {
+    stroke: #F6F6F6;
+  }
+  .footer__social a:hover.whatsapp, .footer__social a:hover.viber, .footer__social a:hover.telegram {
+    fill: #F6F6F6;
+  }
 }
 .footer__social svg {
   margin-left: 5px;
@@ -2096,10 +2145,20 @@ a.btn--hero {
   font-size: 36px;
   line-height: 1;
   font-size: clamp(20px, 0.844rem + 1.65vw, 36px);
+  transition: color 0.3s ease-in, letter-spacing 0.3s ease-in;
+}
+@media (any-hover: hover) and (pointer: fine) {
+  .footer__email:hover {
+    letter-spacing: 0.005em;
+    color: #FCF0E4;
+  }
 }
 .footer__right {
   gap: 40px;
   flex-basis: 49%;
+}
+.footer__info {
+  margin-bottom: 10px;
 }
 @media screen and (max-width: 767.98px) {
   .footer__info {
@@ -2125,6 +2184,127 @@ a.btn--hero {
     font-size: 16px;
   }
 }
+.form__inner {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.form__line {
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 1px solid #F6F6F6;
+}
+.form__line p {
+  width: 100%;
+}
+.form__input {
+  padding: 10px 0;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  transition: padding 0.3s ease;
+  outline: none;
+  color: #F6F6F6;
+}
+.form__input:-webkit-autofill, .form__input:-webkit-autofill:hover, .form__input:-webkit-autofill:focus, .form__input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #F6F6F6;
+  transition: background-color 0.5s ease-in 0s;
+  background-color: transparent !important;
+}
+.form__input::placeholder {
+  color: rgba(246, 246, 246, 0.5);
+}
+.form__input:focus {
+  padding-right: 10px;
+  padding-left: 10px;
+  border-bottom: 1px solid #FCF0E4;
+}
+.form__text {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.form__text-descr {
+  display: block;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.form__textarea {
+  max-height: 154px;
+  border: 2px solid #F6F6F6;
+  border-radius: 7px;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  resize: none;
+  height: 150px;
+  padding: 10px;
+  color: #F6F6F6;
+}
+.form__textarea:focus {
+  border: 2px solid #FCF0E4;
+}
+.form__file {
+  margin-left: auto;
+}
+.form__file-label {
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+.form__file-icon {
+  width: 32px;
+  height: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.6663 2.6665H7.99967C7.29243 2.6665 6.61415 2.94746 6.11406 3.44755C5.61396 3.94765 5.33301 4.62593 5.33301 5.33317V26.6665C5.33301 27.3737 5.61396 28.052 6.11406 28.5521C6.61415 29.0522 7.29243 29.3332 7.99967 29.3332H23.9997C24.7069 29.3332 25.3852 29.0522 25.8853 28.5521C26.3854 28.052 26.6663 27.3737 26.6663 26.6665V10.6665M18.6663 2.6665L26.6663 10.6665M18.6663 2.6665L18.6663 10.6665H26.6663M15.9997 23.9998V15.9998M11.9997 19.9998H19.9997' stroke='%23FCF0E4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+}
+.form__file-input {
+  display: none;
+}
+.form__file-text {
+  color: #F6F6F6;
+  pointer-events: none;
+}
+.form__send {
+  background-color: #FCF0E4;
+  color: #556250;
+  text-transform: uppercase;
+  padding: 13px 27px;
+  width: 100%;
+  font-weight: 700;
+  border: 2px solid #FCF0E4;
+  transition: background-color 0.4s ease-in, color 0.4s ease-in;
+}
+@media (any-hover: hover) and (pointer: fine) {
+  .form__send:hover {
+    background-color: transparent;
+    color: #FCF0E4;
+  }
+}
+
+.wpcf7-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.wpcf7 .wpcf7-response-output {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  padding: 17px !important;
+  font-size: 16px;
+  order: 1;
+}
+
+.wpcf7-not-valid-tip {
+  font-weight: 600;
+  position: relative;
+}
+
 @media (min-width: 992px) {
   .benefits__arrow {
     animation: move-down 5s infinite linear;

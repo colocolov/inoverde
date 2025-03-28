@@ -82,7 +82,7 @@ class ScrollAnimation {
 }
 
 // Инициализация для всех контейнеров
-if (window.innerWidth > 768) {
+if (window.innerWidth > 767.98) {
   document.querySelectorAll('.line-animation').forEach(container => {
     new ScrollAnimation(container);
   });

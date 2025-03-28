@@ -3,7 +3,7 @@
 import _vars from "../_vars.js";
 import Swiper, { Navigation, Pagination, Autoplay, EffectFade, Parallax } from "swiper";
 
-Swiper.use([Navigation, Pagination, Autoplay]);
+Swiper.use([Autoplay]);
 
 // устанавливаем свой размер отступов через глобальную переменную --gap
 // const gap = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--gap"));
@@ -32,7 +32,7 @@ if (_vars.portfolioSliderEl) {
     // кол-во пролистываемых слайдов
     slidesPerGroup: 1,
     // стартовый слайд
-    // initialSlide: 1,
+    initialSlide: 1,
     // активный слайд по центру
     // centeredSlides: true,
     
@@ -52,6 +52,21 @@ if (_vars.portfolioSliderEl) {
       loadOnTransitionStart: false,
       loadPrevNext: false,
     },
+    // переключение при клике на слайд
+    slideToClickedSlide: true,
+    // отключение прокрутки при наведении мыши
+    on: {
+      init() {
+        this.el.addEventListener("mouseenter", () => {
+          this.autoplay.stop();
+        });
+
+        this.el.addEventListener("mouseleave", () => {
+          this.autoplay.start();
+        });
+      },
+    },
+    //
     
   });
   //----- END

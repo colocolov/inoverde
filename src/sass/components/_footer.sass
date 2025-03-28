@@ -39,16 +39,50 @@
         font-size: 20px
     &-phone
       @include font(700, 36, 42)
+      transition: color 0.3s ease-in, letter-spacing 0.3s ease-in
+      @media (any-hover: hover) and (pointer: fine)
+        &:hover
+          letter-spacing: .01em
+          color: $linen
       @include mediaPhone
         font-size: 24px
   &__data
   &__social
     margin-bottom: 20px
     display: flex
+    flex-wrap: wrap
+    gap: 16px
     a
-      color: #FCF0E4
+      position: relative
+      color: $linen
       text-transform: lowercase
       font-size: 20px
+      transition: color 0.3s ease-in
+      padding-bottom: 2px
+      &::before
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0
+        height: 1px // roughly the current letter thickness
+        width: 100%
+        background-color: $linen
+        transition: transform 0.4s ease-out
+        transform: scaleX(1)
+        transform-origin: left
+      @media (any-hover: hover) and (pointer: fine)
+        &:hover
+          color: $white
+          &::before
+            transform: scaleX(0)
+            transform-origin: right
+          &.linkedin,
+          &.ingtagram
+            stroke: $white
+          &.whatsapp,
+          &.viber,
+          &.telegram
+            fill: $white
     svg
       margin-left: 5px
     @include mediaPhone
@@ -56,10 +90,16 @@
   &__email
     @include font(700, 36, 36)
     font-size: clamp(20px, 0.844rem + 1.65vw, 36px)
+    transition: color 0.3s ease-in, letter-spacing 0.3s ease-in
+    @media (any-hover: hover) and (pointer: fine)
+      &:hover
+        letter-spacing: .005em
+        color: $linen
   &__right
     gap: 40px
     flex-basis: 49%
   &__info
+    margin-bottom: 10px
     @include mediaPhone
       margin-bottom: 16px
   &__title

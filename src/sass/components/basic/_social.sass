@@ -1,10 +1,23 @@
 .social
   display: flex
   align-items: center
+  &__icon
+    display: flex
+    align-items: center
   li
-    border-bottom: 1px solid $bgc
-    &:not(:last-child)
-      margin-right: 20px
+    // border-bottom: 1px solid $linen
+    // &:not(:last-child)
+    //   margin-right: 20px
   svg
     width: 20px
     height: 20px
+    // fill: $black
+    // display: inline-block
+    // vertical-align: middle
+    &.linkedin,
+    &.ingtagram
+      stroke: $linen
+    &.whatsapp,
+    &.viber,
+    &.telegram
+      fill: $linen
