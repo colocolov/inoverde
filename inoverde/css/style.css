@@ -1206,6 +1206,11 @@ a.btn--hero {
 }
 
 .parallax {
+  position: relative;
+  height: 100vh;
+}
+.parallax::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1215,7 +1220,6 @@ a.btn--hero {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  z-index: -1;
 }
 
 .about {
