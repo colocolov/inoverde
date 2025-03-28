@@ -22,6 +22,7 @@ if (_vars.portfolioSliderEl) {
       //отключить после ручного переключения
       // disableOnInteraction: false,
     },
+    direction: 'horizontal',
     //скорость переключения слайдов
     speed: 800,
     // показ кол-ва слайдов (работает, когда откл effect: "fade")
@@ -36,6 +37,12 @@ if (_vars.portfolioSliderEl) {
     // активный слайд по центру
     // centeredSlides: true,
     
+    // ДЛЯ ТАЧА
+    touchEventsTarget: 'container',
+    touchRatio: 1.2,
+    simulateTouch: true,
+    resistance: false,
+
     // адаптив
     breakpoints: {
       // when window width is >= 320px

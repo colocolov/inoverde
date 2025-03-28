@@ -9,7 +9,7 @@
   @include mediaPhone
     --heightSlider: 250px
   & .container-right
-    // overflow: hidden
+    overflow: hidden
     // height: 399px
 
   &__head
@@ -20,10 +20,12 @@
   &__slider
     width: 100% // задать по макету
     height: var(--heightSlider) // задать по макету
-    overflow: hidden
+    // overflow: hidden // NEW
+
     &-wrap
       height: var(--heightSlider)
       display: flex
+
 
   &__slide
     // display: flex
