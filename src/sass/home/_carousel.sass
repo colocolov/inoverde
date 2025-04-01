@@ -47,9 +47,9 @@
     opacity: 0
     animation: showThumbnail 0.5s linear 1 forwards
 
-  &.next .carousel__time,
-  &.prev .carousel__time
-    animation: runningTime 3s linear 1 forwards
+  // &.next .carousel__time,
+  // &.prev .carousel__time
+  //   animation: runningTime 3s linear 1 forwards
 
   &__list-item
     width: 100%
@@ -128,14 +128,14 @@
           background-color: $white
           color: rgba($black, 0.5)
 
-  &__time
-    position: absolute
-    z-index: 16
-    width: 0%
-    height: 3px
-    background-color: #f1683a
-    left: 0
-    top: 0
+  // &__time
+  //   position: absolute
+  //   z-index: 16
+  //   width: 0%
+  //   height: 3px
+  //   background-color: #f1683a
+  //   left: 0
+  //   top: 0
 
 @keyframes showImage
   to
@@ -167,8 +167,8 @@
       height: 145px
       width: 100px
 
-@keyframes runningTime
-  from
-    width: 100%
-  to
-    width: 0
+// @keyframes runningTime
+//   from
+//     width: 100%
+//   to
+//     width: 0

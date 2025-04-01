@@ -2010,9 +2010,7 @@ a.btn--hero {
 .photo {
   margin-top: var(--sectionPaddingTop);
   margin-bottom: var(--sectionPaddingBottom);
-  position: relative;
   height: 500px;
-  overflow: hidden;
 }
 @media screen and (max-width: 767.98px) {
   .photo {
@@ -2027,19 +2025,24 @@ a.btn--hero {
 
 .parallax {
   position: relative;
-  height: 100vh;
+  height: 500px;
+  overflow: hidden;
 }
-.parallax::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+.parallax__img {
+  height: 100vh;
+  background-image: var(--bg-image);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.parallax__img.ios {
+  /* Обеспечение работы на iOS */
+  transform: translate3d(0, 0, 0);
+  background-attachment: unset;
   width: 100%;
   height: 100%;
-  background-image: var(--bg-image);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  object-fit: cover;
 }
 
 .about {
@@ -2251,9 +2254,6 @@ a.btn--hero {
   opacity: 0;
   animation: showThumbnail 0.5s linear 1 forwards;
 }
-.carousel.next .carousel__time, .carousel.prev .carousel__time {
-  animation: runningTime 3s linear 1 forwards;
-}
 .carousel__list-item {
   width: 100%;
   height: 100%;
@@ -2349,15 +2349,6 @@ a.btn--hero {
     color: rgba(47, 47, 47, 0.5);
   }
 }
-.carousel__time {
-  position: absolute;
-  z-index: 16;
-  width: 0%;
-  height: 3px;
-  background-color: #f1683a;
-  left: 0;
-  top: 0;
-}
 
 @keyframes showImage {
   to {
@@ -2393,14 +2384,6 @@ a.btn--hero {
       height: 145px;
       width: 100px;
     }
-  }
-}
-@keyframes runningTime {
-  from {
-    width: 100%;
-  }
-  to {
-    width: 0;
   }
 }
 .services {

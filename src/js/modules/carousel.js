@@ -5,7 +5,7 @@ let carouselDom = document.querySelector('.carousel');
 let SliderDom = carouselDom.querySelector('.carousel__list');
 let thumbnailBorderDom = document.querySelector('.carousel__thumbnail');
 let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.carousel__thumbnail-item');
-let timeDom = document.querySelector('.carousel__time2');
+//let timeDom = document.querySelector('.carousel__time2');
 
 thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
 let timeRunning = parseInt(carouselDom.dataset.running) || 3000;
