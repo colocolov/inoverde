@@ -10,6 +10,7 @@ import "./modules/animateHeader.js";
 import "./modules/animateNumber.js";
 import "./modules/parallax.js";
 import "./modules/sliderPortfolio.js";
+// import "./modules/sliderParallax.js";
 import "./modules/animateProgresLine.js";
 
 //import "./modules/modal.js";
