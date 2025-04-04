@@ -2010,26 +2010,16 @@ a.btn--hero {
 .photo {
   margin-top: var(--sectionPaddingTop);
   margin-bottom: var(--sectionPaddingBottom);
-  height: 500px;
-}
-@media screen and (max-width: 767.98px) {
-  .photo {
-    height: 400px;
-  }
-}
-@media screen and (max-width: 575.98px) {
-  .photo {
-    height: 250px;
-  }
+  height: clamp(300px, 13.67rem + 20.68vw, 500px);
 }
 
 .parallax {
   position: relative;
-  height: 500px;
   overflow: hidden;
 }
 .parallax__img {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   background-image: var(--bg-image);
   background-attachment: fixed;
   background-position: center;
@@ -2195,24 +2185,9 @@ a.btn--hero {
 
 .carousel {
   width: 100vw;
-  height: 900px;
+  height: clamp(350px, 7.905rem + 56.88vw, 900px);
   overflow: hidden;
   position: relative;
-}
-@media screen and (max-width: 991.98px) {
-  .carousel {
-    height: 750px;
-  }
-}
-@media screen and (max-width: 767.98px) {
-  .carousel {
-    height: 600px;
-  }
-}
-@media screen and (max-width: 575.98px) {
-  .carousel {
-    height: 450px;
-  }
 }
 .carousel.next .carousel__list .carousel__list-item:nth-child(1) img {
   width: 150px;
@@ -2278,12 +2253,11 @@ a.btn--hero {
 }
 @media screen and (max-width: 991.98px) {
   .carousel__thumbnail {
-    left: 50%;
+    left: 55%;
   }
 }
 @media screen and (max-width: 767.98px) {
   .carousel__thumbnail {
-    left: 40%;
     bottom: 32px;
   }
 }
@@ -2496,20 +2470,10 @@ a.btn--hero {
   }
 }
 .portfolio {
-  --heightSlider: 399px;
+  --heightSlider: clamp(260px, 11.424rem + 19.65vw, 450px);
   position: relative;
   padding-top: var(--sectionPaddingTop);
   padding-bottom: var(--sectionPaddingBottom);
-}
-@media screen and (max-width: 991.98px) {
-  .portfolio {
-    --heightSlider: 300px;
-  }
-}
-@media screen and (max-width: 767.98px) {
-  .portfolio {
-    --heightSlider: 250px;
-  }
 }
 .portfolio .container-right {
   overflow: hidden;
@@ -3111,6 +3075,14 @@ a.btn--hero {
 .wpcf7-not-valid-tip {
   font-weight: 600;
   position: relative;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+  color: #FCF0E4;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output {
+  color: #dc3232;
 }
 
 @media (min-width: 992px) {

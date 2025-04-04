@@ -1,14 +1,14 @@
 .carousel
   width: 100vw
-  height: 900px
+  height: clamp(350px, 7.905rem + 56.88vw, 900px)
   overflow: hidden
   position: relative
-  @include mediaTablet
-    height: 750px
-  @include mediaPhone
-    height: 600px
-  @include mediaPhoneMid
-    height: 450px
+  // @include mediaTablet
+  //   height: 750px
+  // @include mediaPhone
+  //   height: 600px
+  // @include mediaPhoneMid
+  //   height: 450px
 
   // effect next click
   &.next .carousel__list .carousel__list-item:nth-child(1) img
@@ -72,9 +72,9 @@
     display: flex
     gap: 20px
     @include mediaTablet
-      left: 50%
+      left: 55%
     @include mediaPhone
-      left: 40%
+      // left: 55%
       bottom: 32px
     &-item
       width: 150px

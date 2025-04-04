@@ -1,13 +1,13 @@
 .portfolio
-  --heightSlider: 399px
+  --heightSlider: clamp(260px, 11.424rem + 19.65vw, 450px)
   position: relative
   padding-top: var(--sectionPaddingTop)
   padding-bottom: var(--sectionPaddingBottom)
   // max-height: 399px
-  @include mediaTablet
-    --heightSlider: 300px
-  @include mediaPhone
-    --heightSlider: 250px
+  // @include mediaTablet
+  //   --heightSlider: 300px
+  // @include mediaPhone
+  //   --heightSlider: 250px
   & .container-right
     overflow: hidden
     // height: 399px

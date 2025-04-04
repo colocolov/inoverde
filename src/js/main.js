@@ -7,7 +7,7 @@ import "./modules/AnimateText.js";
 import "./modules/dinam-adap.js";
 import "./modules/carousel.js";
 import "./modules/animateHeader.js";
-import "./modules/animateNumber.js";
+// import "./modules/animateNumber.js";
 import "./modules/parallax.js";
 import "./modules/sliderPortfolio.js";
 // import "./modules/sliderParallax.js";
