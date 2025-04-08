@@ -15,7 +15,7 @@
 
   &__container
     display: flex
-    gap: 40px
+    gap: 30px
     @include mediaPhone
       flex-direction: column
       gap: 64px
@@ -26,6 +26,8 @@
     flex-grow: 1
     flex-basis: 49%
     gap: 40px
+    @include mediaPhoneMid
+      gap: 30px
   &__head
   &__address
     @include mediaPhone

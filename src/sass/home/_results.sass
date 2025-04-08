@@ -13,6 +13,8 @@
     margin-bottom: 60px
     @include mediaPhone
       margin-bottom: 32px
+    @include mediaPhoneMid
+      margin-bottom: 15px
   &__wrap
     display: flex
     gap: 30px
@@ -65,17 +67,21 @@
   &__list
     display: flex
     flex-wrap: wrap
-    gap: 40px 20px
+    gap: 44px 20px
     @include mediaPhone
       gap: 16px
+    @include mediaPhoneMid
+      gap: 35px
   &__item
     flex-basis: 48%
+    display: flex
+    justify-content: space-between
+    flex-direction: column
     @media screen and (max-width: 1099.98px)
       flex-basis: 47%
     @include mediaPhone
       flex-basis: 100%
-      display: flex
-      justify-content: space-between
+      flex-direction: row
       align-items: center
       // gap: 40px
       position: relative
@@ -89,6 +95,7 @@
         height: 2px
         background-color: $green
   &__title
+    font-size: 20px
     @include mediaPhone
       max-width: 47%
       background-color: $bgc
@@ -96,11 +103,12 @@
       z-index: 2
       padding-right: 20px
     @include mediaPhoneSm
-      max-width: 60%
+      max-width: 55%
       padding-right: 15px
+      font-size: 16px
   &__num
     color: $green
-    @include font(600, 64, 58)
+    @include font(700, 64, 58)
     @include mediaPhone
       background-color: $bgc
       position: relative

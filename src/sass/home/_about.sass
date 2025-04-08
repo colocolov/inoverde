@@ -9,6 +9,7 @@
     display: flex
     gap: 20px
     @include mediaPhone
+      gap: 7px
       flex-direction: column
   &__head
     margin-bottom: 40px
@@ -91,9 +92,9 @@
     @include mediaPhone
       padding-top: 16px
     &:not(:last-child)
-      margin-bottom: 20px
-      @include mediaPhone
-        margin-bottom: 16px
+      margin-bottom: 10px
+      // @include mediaPhone
+      //   margin-bottom: 16px
     p:not(:last-child)
       margin-bottom: 20px
       @include mediaPhone

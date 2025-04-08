@@ -1,5 +1,6 @@
-// Функция для оборачивания букв в теги span
-   function wrapLettersWithWords(element) {
+  const headTitle = document.querySelectorAll('.head-animate');
+  // Функция для оборачивания букв в теги span
+  function wrapLettersWithWords(element) {
     const letterDelay = parseFloat(element.dataset.letterDelay) || 0.08;
     const wordDelay = parseFloat(element.dataset.wordDelay) || 0.4;
     
@@ -36,7 +37,9 @@
     });
   }, { threshold: 0.5 });
 
-  document.querySelectorAll('.head-animate').forEach(heading => {
-    wrapLettersWithWords(heading);
-    observer.observe(heading);
-  }); 
+  if (headTitle) {
+    headTitle.forEach(heading => {
+      wrapLettersWithWords(heading);
+      observer.observe(heading);
+    }); 
+  }

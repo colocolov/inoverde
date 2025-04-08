@@ -1227,7 +1227,7 @@ input {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1px 20px;
+  gap: 1px 14px;
   justify-content: flex-end;
 }
 @media screen and (max-width: 767.98px) {
@@ -1409,12 +1409,18 @@ input {
 }
 .menu-languages {
   align-self: flex-start;
+  margin-left: 110px;
 }
 .menu-languages li a::after {
   top: 0 !important;
 }
 .menu-languages ul li a {
   color: #F6F6F6 !important;
+}
+@media screen and (max-width: 1023.98px) {
+  .menu-languages {
+    margin-left: 40px;
+  }
 }
 @media screen and (max-width: 767.98px) {
   .menu-languages {
@@ -1730,6 +1736,7 @@ a.btn--hero {
 @media screen and (max-width: 767.98px) {
   .hero {
     padding-top: 100px;
+    padding-bottom: 10px;
   }
 }
 .hero__container {
@@ -1873,6 +1880,7 @@ a.btn--hero {
 @media screen and (max-width: 767.98px) {
   .hero {
     padding-top: 100px;
+    padding-bottom: 10px;
   }
 }
 .hero__container {
@@ -2049,6 +2057,7 @@ a.btn--hero {
 }
 @media screen and (max-width: 767.98px) {
   .about__inner {
+    gap: 7px;
     flex-direction: column;
   }
 }
@@ -2167,12 +2176,7 @@ a.btn--hero {
   }
 }
 .about__item:not(:last-child) {
-  margin-bottom: 20px;
-}
-@media screen and (max-width: 767.98px) {
-  .about__item:not(:last-child) {
-    margin-bottom: 16px;
-  }
+  margin-bottom: 10px;
 }
 .about__item p:not(:last-child) {
   margin-bottom: 20px;
@@ -2185,7 +2189,7 @@ a.btn--hero {
 
 .carousel {
   width: 100vw;
-  height: clamp(350px, 7.905rem + 56.88vw, 900px);
+  height: clamp(270px, 0.873rem + 65.15vw, 900px);
   overflow: hidden;
   position: relative;
 }
@@ -2360,8 +2364,13 @@ a.btn--hero {
   }
 }
 .services {
-  padding-top: var(--sectionPaddingTop);
+  padding-top: 80px;
   padding-bottom: var(--sectionPaddingBottom);
+}
+@media screen and (max-width: 767.98px) {
+  .services {
+    padding-top: 65px;
+  }
 }
 .services__top {
   display: flex;
@@ -2410,7 +2419,7 @@ a.btn--hero {
 }
 .services__data {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   gap: 30px;
@@ -2443,6 +2452,7 @@ a.btn--hero {
 .services__title {
   font-size: 36px;
   font-weight: 600;
+  line-height: 1.2;
   max-width: 560px;
   width: 100%;
 }
@@ -2457,7 +2467,7 @@ a.btn--hero {
 }
 @media screen and (max-width: 767.98px) {
   .services__text {
-    max-width: 45%;
+    max-width: 48%;
   }
 }
 
@@ -2526,6 +2536,11 @@ a.btn--hero {
     margin-bottom: 32px;
   }
 }
+@media screen and (max-width: 575.98px) {
+  .results__head {
+    margin-bottom: 15px;
+  }
+}
 .results__wrap {
   display: flex;
   gap: 30px;
@@ -2585,15 +2600,23 @@ a.btn--hero {
 .results__list {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px 20px;
+  gap: 44px 20px;
 }
 @media screen and (max-width: 767.98px) {
   .results__list {
     gap: 16px;
   }
 }
+@media screen and (max-width: 575.98px) {
+  .results__list {
+    gap: 35px;
+  }
+}
 .results__item {
   flex-basis: 48%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 @media screen and (max-width: 1099.98px) {
   .results__item {
@@ -2603,8 +2626,7 @@ a.btn--hero {
 @media screen and (max-width: 767.98px) {
   .results__item {
     flex-basis: 100%;
-    display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
     position: relative;
     overflow: hidden;
@@ -2619,6 +2641,9 @@ a.btn--hero {
     background-color: #556250;
   }
 }
+.results__title {
+  font-size: 20px;
+}
 @media screen and (max-width: 767.98px) {
   .results__title {
     max-width: 47%;
@@ -2630,13 +2655,14 @@ a.btn--hero {
 }
 @media screen and (max-width: 479.98px) {
   .results__title {
-    max-width: 60%;
+    max-width: 55%;
     padding-right: 15px;
+    font-size: 16px;
   }
 }
 .results__num {
   color: #556250;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 64px;
   line-height: 0.90625;
 }
@@ -2656,7 +2682,7 @@ a.btn--hero {
 
 .process {
   padding-top: var(--sectionPaddingTop);
-  padding-bottom: 80px;
+  padding-bottom: 50px;
 }
 .process__head {
   margin-bottom: 40px;
@@ -2812,7 +2838,7 @@ a.btn--hero {
 }
 .footer__container {
   display: flex;
-  gap: 40px;
+  gap: 30px;
 }
 @media screen and (max-width: 767.98px) {
   .footer__container {
@@ -2827,6 +2853,11 @@ a.btn--hero {
   flex-grow: 1;
   flex-basis: 49%;
   gap: 40px;
+}
+@media screen and (max-width: 575.98px) {
+  .footer__left {
+    gap: 30px;
+  }
 }
 @media screen and (max-width: 767.98px) {
   .footer__address {
@@ -2993,7 +3024,7 @@ a.btn--hero {
   border-bottom: 1px solid #FCF0E4;
 }
 .form__text {
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 20px;
 }
 .form__text-descr {

@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     { threshold: 0.5 }
   );
-  textBlocks.forEach((block) => textObserver.observe(block));
+  if (textBlocks) {
+    textBlocks.forEach((block) => textObserver.observe(block));
+  }
 
   // Второй скрипт - анимация контейнеров с элементами
   const containers = document.querySelectorAll('[data-scroll-animation]');

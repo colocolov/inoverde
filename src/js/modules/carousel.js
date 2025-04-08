@@ -11,33 +11,36 @@ thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
 let timeRunning = parseInt(carouselDom.dataset.running) || 3000;
 let timeAutoNext = parseInt(carouselDom.dataset.autonext) || 5000;
 
-// 1. Заменяем старый код автопрокрутки на новый
-let autoPlayInterval;
+if (carouselDom) {
 
-function startAutoPlay() {
-    autoPlayInterval = setInterval(() => {
-        nextDom.click();
-    }, timeAutoNext);
+    // 1. Заменяем старый код автопрокрутки на новый
+    let autoPlayInterval;
+
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(() => {
+            nextDom.click();
+        }, timeAutoNext);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    nextDom.onclick = function(){
+        showSlider('next');    
+    }
+
+    prevDom.onclick = function(){
+        showSlider('prev');    
+    }
+
+    // 2. Инициализация автопрокрутки
+    startAutoPlay();
 }
-
-function stopAutoPlay() {
-    clearInterval(autoPlayInterval);
-}
-
-nextDom.onclick = function(){
-    showSlider('next');    
-}
-
-prevDom.onclick = function(){
-    showSlider('prev');    
-}
-
-// 2. Инициализация автопрокрутки
-startAutoPlay();
 
 // 3. Добавляем обработчики для паузы при наведении
-carouselDom.addEventListener('mouseenter', stopAutoPlay);
-carouselDom.addEventListener('mouseleave', startAutoPlay);
+// carouselDom.addEventListener('mouseenter', stopAutoPlay);
+// carouselDom.addEventListener('mouseleave', startAutoPlay);
 
 let runTimeOut;
 function showSlider(type){
