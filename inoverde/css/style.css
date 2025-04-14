@@ -94,7 +94,6 @@ swiper-slide {
 
 .swiper-backface-hidden .swiper-slide {
   transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -459,7 +458,8 @@ button.swiper-pagination-bullet {
   padding: 0;
   box-shadow: none;
   -webkit-appearance: none;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
 }
 
 .swiper-pagination-clickable .swiper-pagination-bullet {
@@ -655,7 +655,8 @@ button.swiper-pagination-bullet {
 .swiper-zoom-container > canvas {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .swiper-slide-zoomed {
@@ -712,7 +713,6 @@ swiper-container .swiper-notification {
 
 .swiper-cube .swiper-slide {
   pointer-events: none;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   z-index: 1;
   visibility: hidden;
@@ -747,7 +747,6 @@ swiper-container .swiper-notification {
 .swiper-cube .swiper-slide-shadow-left,
 .swiper-cube .swiper-slide-shadow-right {
   z-index: 0;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -778,7 +777,6 @@ swiper-container .swiper-notification {
 
 .swiper-flip .swiper-slide {
   pointer-events: none;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   z-index: 1;
 }
@@ -797,12 +795,10 @@ swiper-container .swiper-notification {
 .swiper-flip .swiper-slide-shadow-left,
 .swiper-flip .swiper-slide-shadow-right {
   z-index: 0;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .swiper-creative .swiper-slide {
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
   transition-property: transform, opacity, height;
@@ -814,7 +810,6 @@ swiper-container .swiper-notification {
 
 .swiper-cards .swiper-slide {
   transform-origin: center bottom;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
 }
@@ -1085,7 +1080,8 @@ input {
   height: 100%;
   top: 0;
   left: 0;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 ._vbg {
@@ -1106,7 +1102,8 @@ input {
   min-height: 100%;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .icon-svg {
@@ -1465,6 +1462,12 @@ input {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
+    margin-bottom: 0;
+  }
+  .menu-languages li.current-languages > a {
+    color: #F6F6F6;
+    background-color: #2F2F2F;
+    padding: 5px;
   }
   .menu-languages li a {
     width: auto;
@@ -1532,6 +1535,7 @@ input {
     opacity: 1;
     top: 0;
     width: auto;
+    max-height: -moz-min-content;
     max-height: min-content;
     display: flex;
     align-items: center;
@@ -1667,6 +1671,7 @@ a.btn {
   text-align: center;
   text-transform: uppercase;
   border: 2px solid #605245;
+  min-width: -moz-max-content;
   min-width: max-content;
   transition: background 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.3s ease;
 }
@@ -1691,8 +1696,19 @@ a.btn--hero {
   margin-top: 20px;
 }
 @media screen and (max-width: 767.98px) {
+  a.btn--hero {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767.98px) {
   a.btn--about {
     margin-bottom: 32px;
+    min-width: 190px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  a.btn--results, a.btn--services {
+    min-width: 190px;
   }
 }
 
@@ -2039,7 +2055,8 @@ a.btn--hero {
   background-attachment: unset;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .about {
@@ -2241,7 +2258,8 @@ a.btn--hero {
 .carousel__list-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .carousel__list-item:nth-child(1) {
   z-index: 1;
@@ -2250,6 +2268,7 @@ a.btn--hero {
   position: absolute;
   bottom: 50px;
   left: 60%;
+  width: -moz-max-content;
   width: max-content;
   z-index: 15;
   display: flex;
@@ -2285,7 +2304,8 @@ a.btn--hero {
 .carousel__thumbnail-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media (any-hover: hover) and (pointer: fine) {
   .carousel__thumbnail-item:hover {
@@ -2428,6 +2448,7 @@ a.btn--hero {
   .services__data {
     align-items: flex-start;
     flex-wrap: wrap;
+    max-width: 48%;
   }
 }
 .services__num {
@@ -2458,7 +2479,7 @@ a.btn--hero {
 }
 @media screen and (max-width: 767.98px) {
   .services__title {
-    font-size: 24px;
+    font-size: 22px;
     margin-top: auto;
   }
 }
@@ -2468,6 +2489,7 @@ a.btn--hero {
 @media screen and (max-width: 767.98px) {
   .services__text {
     max-width: 48%;
+    text-align: justify;
   }
 }
 
@@ -2509,7 +2531,8 @@ a.btn--hero {
   flex-shrink: 0;
 }
 .portfolio__slide img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   height: 100%;
   width: 100%;
 }
@@ -3012,8 +3035,12 @@ a.btn--hero {
 .form__input:-webkit-autofill, .form__input:-webkit-autofill:hover, .form__input:-webkit-autofill:focus, .form__input:-webkit-autofill:active {
   -webkit-background-clip: text;
   -webkit-text-fill-color: #F6F6F6;
+  -webkit-transition: background-color 0.5s ease-in 0s;
   transition: background-color 0.5s ease-in 0s;
   background-color: transparent !important;
+}
+.form__input::-moz-placeholder {
+  color: rgba(246, 246, 246, 0.5);
 }
 .form__input::placeholder {
   color: rgba(246, 246, 246, 0.5);

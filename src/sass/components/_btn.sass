@@ -36,9 +36,16 @@ a.btn
     margin-top: 20px
   &--hero
     margin-top: 20px
+    @include mediaPhone
+      width: 100%
   &--about
     @include mediaPhone
       margin-bottom: 32px
+      min-width: 190px
+  &--results,
+  &--services
+    @include mediaPhone
+      min-width: 190px
 
 
 // стрелки слайдера

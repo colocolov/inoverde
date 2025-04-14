@@ -1,20 +1,39 @@
-let nextDom = document.getElementById('next');
-let prevDom = document.getElementById('prev');
+document.addEventListener('DOMContentLoaded', () => {
+    // Проверяем наличие основного контейнера карусели
+    const carouselDom = document.querySelector('.carousel');
+    if (!carouselDom) {
+        // console.log('Carousel not found - script stopped');
+        return;
+    }
 
-let carouselDom = document.querySelector('.carousel');
-let SliderDom = carouselDom.querySelector('.carousel__list');
-let thumbnailBorderDom = document.querySelector('.carousel__thumbnail');
-let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.carousel__thumbnail-item');
-//let timeDom = document.querySelector('.carousel__time2');
+    // Проверяем наличие обязательных элементов
+    const nextDom = document.getElementById('next');
+    const prevDom = document.getElementById('prev');
+    const SliderDom = carouselDom.querySelector('.carousel__list');
+    const thumbnailBorderDom = document.querySelector('.carousel__thumbnail');
+    
+    if (!nextDom || !prevDom || !SliderDom || !thumbnailBorderDom) {
+        // console.log('Required carousel elements not found - script stopped');
+        return;
+    }
 
-thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-let timeRunning = parseInt(carouselDom.dataset.running) || 3000;
-let timeAutoNext = parseInt(carouselDom.dataset.autonext) || 5000;
+    // Проверяем наличие элементов миниатюр
+    const thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.carousel__thumbnail-item');
+    if (thumbnailItemsDom.length === 0) {
+        // console.log('No thumbnail items found - script stopped');
+        return;
+    }
 
-if (carouselDom) {
+    // Добавляем первую миниатюру в конец (для циклической прокрутки)
+    thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
 
-    // 1. Заменяем старый код автопрокрутки на новый
+    // Получаем настройки из data-атрибутов или используем значения по умолчанию
+    const timeRunning = parseInt(carouselDom.dataset.running) || 3000;
+    const timeAutoNext = parseInt(carouselDom.dataset.autonext) || 5000;
+
+    // 1. Логика автопрокрутки
     let autoPlayInterval;
+    let runTimeOut;
 
     function startAutoPlay() {
         autoPlayInterval = setInterval(() => {
@@ -26,45 +45,45 @@ if (carouselDom) {
         clearInterval(autoPlayInterval);
     }
 
-    nextDom.onclick = function(){
-        showSlider('next');    
+    // 2. Обработчики кнопок
+    nextDom.onclick = function() {
+        stopAutoPlay();
+        showSlider('next');
+        startAutoPlay();
     }
 
-    prevDom.onclick = function(){
-        showSlider('prev');    
+    prevDom.onclick = function() {
+        stopAutoPlay();
+        showSlider('prev');
+        startAutoPlay();
     }
 
-    // 2. Инициализация автопрокрутки
+    // 3. Функция показа слайдов
+    function showSlider(type) {
+        const SliderItemsDom = SliderDom.querySelectorAll('.carousel__list-item');
+        const thumbnailItemsDom = document.querySelectorAll('.carousel__thumbnail-item');
+        
+        if (type === 'next') {
+            SliderDom.appendChild(SliderItemsDom[0]);
+            thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+            carouselDom.classList.add('next');
+        } else {
+            SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+            thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+            carouselDom.classList.add('prev');
+        }
+
+        clearTimeout(runTimeOut);
+        runTimeOut = setTimeout(() => {
+            carouselDom.classList.remove('next');
+            carouselDom.classList.remove('prev');
+        }, timeRunning);
+    }
+
+    // 4. Инициализация автопрокрутки
     startAutoPlay();
-}
 
-// 3. Добавляем обработчики для паузы при наведении
-// carouselDom.addEventListener('mouseenter', stopAutoPlay);
-// carouselDom.addEventListener('mouseleave', startAutoPlay);
-
-let runTimeOut;
-function showSlider(type){
-    let  SliderItemsDom = SliderDom.querySelectorAll('.carousel__list-item');
-    let thumbnailItemsDom = document.querySelectorAll('.carousel__thumbnail-item');
-    
-    if(type === 'next'){
-        SliderDom.appendChild(SliderItemsDom[0]);
-        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-        carouselDom.classList.add('next');
-    }else{
-        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
-        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
-        carouselDom.classList.add('prev');
-    }
-    clearTimeout(runTimeOut);
-    runTimeOut = setTimeout(() => {
-        carouselDom.classList.remove('next');
-        carouselDom.classList.remove('prev');
-    }, timeRunning);
-
-    // 4. Удаляем старый код автопрокрутки (эти строки больше не нужны)
-    // clearTimeout(runNextAuto);
-    // runNextAuto = setTimeout(() => {
-    //     nextDom.click();
-    // }, timeAutoNext)
-}
+    // 5. Пауза при наведении (по желанию)
+    // carouselDom.addEventListener('mouseenter', stopAutoPlay);
+    // carouselDom.addEventListener('mouseleave', startAutoPlay);
+});

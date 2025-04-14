@@ -47,6 +47,7 @@
     @include mediaPhone
       align-items: flex-start
       flex-wrap: wrap
+      max-width: 48%
       // flex-direction: column
       // min-height: 100%
   &__num
@@ -71,13 +72,14 @@
     max-width: 560px
     width: 100%
     @include mediaPhone
-      font-size: 24px
+      font-size: 22px
       // flex-grow: 1
       margin-top: auto
   &__text
     max-width: 325px
     @include mediaPhone
       max-width: 48%
+      text-align: justify
 
 @keyframes blink
   0%, 100%

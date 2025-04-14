@@ -62,11 +62,11 @@ if (_vars.portfolioSliderEl) {
 
     //отложенная загрузка:
     //отключаем презагрузку картинок
-    preloadImages: false,
-    lazy: {
-      loadOnTransitionStart: false,
-      loadPrevNext: false,
-    },
+    // preloadImages: false,
+    // lazy: {
+    //   loadOnTransitionStart: false,
+    //   loadPrevNext: 1,
+    // },
     // переключение при клике на слайд
     slideToClickedSlide: true,
     // отключение прокрутки при наведении мыши

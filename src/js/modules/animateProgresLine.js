@@ -3,6 +3,12 @@ class ScrollAnimation {
     this.container = container;
     this.line = container.querySelector('.line');
     this.sections = container.querySelectorAll('.process__section');
+
+    if (!this.line || !this.sections.length) {
+      // console.log('Required elements (.line or .process__section) not found in container', container);
+      return; // Прекращаем выполнение, если нет нужных элементов
+    }
+
     this.duration = parseInt(container.dataset.duration) || 7000;
     this.shouldRepeat = container.dataset.repeat === 'true';
     this.animationId = null;
@@ -81,12 +87,29 @@ class ScrollAnimation {
   }
 }
 
-// Инициализация для всех контейнеров
-const lineAnimate = document.querySelectorAll('.line-animation2');
-if (lineAnimate) {
-  if (window.innerWidth > 767.98 ) {
-    lineAnimate.forEach(container => {
+// Инициализация только если есть хотя бы один .line-animation2
+document.addEventListener('DOMContentLoaded', () => {
+  const lineAnimateContainers = document.querySelectorAll('.line-animation');
+  
+  if (!lineAnimateContainers.length) {
+    // console.log('No .line-animation containers found - script stopped');
+    return; // Выходим, если нет контейнеров
+  }
+
+  // Функция для инициализации анимации (только на десктопе)
+  const initAnimation = () => {
+    if (window.innerWidth <= 767.98) {
+      return; // Не запускаем на мобильных устройствах
+    }
+
+    lineAnimateContainers.forEach(container => {
       new ScrollAnimation(container);
     });
-  }
-}
+  };
+
+  // Инициализация при загрузке
+  initAnimation();
+  
+  // Переинициализация при изменении размера окна
+  window.addEventListener('resize', initAnimation);
+});
